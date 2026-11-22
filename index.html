@@ -7,11 +7,11 @@
 <meta name="description" content="Chinese takeout in Marietta, GA since 2014: day specials from $11.55, lo mein, fried rice, General Tso's, crab rangoon and party trays. 3595 Canton Rd, Suite 328. Call (770) 591-4288.">
 <!-- Remove the next line to let search engines list the site. -->
 <meta name="robots" content="noindex, nofollow">
-<meta name="theme-color" content="#fffaf2">
-<link rel="stylesheet" href="https://unpkg.com/lenis@1.3.27/dist/lenis.css">
+<meta name="theme-color" content="#160c0a">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,600;9..40,700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Work+Sans:wght@400;500;600;700&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@900&text=%E9%9B%B2%E5%90%9E&display=swap" rel="stylesheet">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Restaurant","name":"Mr. Wonton","servesCuisine":"Chinese",
  "telephone":"+1-770-591-4288","priceRange":"$","acceptsReservations":false,
@@ -21,221 +21,209 @@
   {"@type":"OpeningHoursSpecification","dayOfWeek":["Friday","Saturday"],"opens":"11:00","closes":"22:00"}]}
 </script>
 <style>
+  /* Layout: a lit takeout menu board. Dark lacquer walls, gold-framed board panels, cream order slips for party trays. One committed dark look. */
   :root{
-    --paper:#fffaf2; --soft:#f7eedf; --ink:#1f1714; --muted:#6c5f57;
-    --red:#b3221c; --red-dark:#8f1a15; --gold:#f2b632; --jade:#2f7d5b;
-    --line:#ecdfcc; --on-red:#fff; --header:62px; --chips:58px;
-  }
-  @media (prefers-color-scheme: dark){
-    :root:not([data-theme="light"]){
-      --paper:#17110f; --soft:#221a16; --ink:#f6ede4; --muted:#bcaea3;
-      --red:#e2483f; --red-dark:#c93b33; --line:#3a2e28; --jade:#6cc39a;
-    }
-  }
-  :root[data-theme="dark"]{
-    --paper:#17110f; --soft:#221a16; --ink:#f6ede4; --muted:#bcaea3;
-    --red:#e2483f; --red-dark:#c93b33; --line:#3a2e28; --jade:#6cc39a;
+    --lacquer:#160c0a; --board:#21100d; --panel:#2b1410; --red:#c4261d; --red-deep:#8e1610;
+    --gold:#eab54c; --gold-soft:#f3cf86; --jade:#2f8a68; --cream:#fbefd9; --muted:#cdb59c;
+    --rule:rgba(234,181,76,.28); --paper:#f6ead2; --paper-ink:#2a1a12; --paper-rule:#d9c3a0;
+    --display:"Anton","Impact","Arial Narrow",sans-serif; --body:"Work Sans",system-ui,sans-serif;
+    --slip:"Courier Prime","Courier New",monospace; --han:"Noto Serif TC","Songti SC","SimSun",serif;
+    --header:64px; color-scheme:dark;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
   @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} }
-  body{background:var(--paper);color:var(--ink);font-family:"DM Sans",system-ui,sans-serif;font-size:17px;line-height:1.55}
+  body{background:var(--lacquer);color:var(--cream);font-family:var(--body);font-size:17px;line-height:1.55}
   a{color:inherit}
   abbr{text-decoration:none}
-  :focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:6px}
-  .wrap{max-width:1120px;margin:0 auto;padding:0 20px}
-  .skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:var(--paper);padding:8px 14px;border-radius:8px;z-index:99}
+  img{max-width:100%}
+  :focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:4px}
+  .wrap{max-width:1180px;margin:0 auto;padding-left:max(20px, env(safe-area-inset-left, 0px));padding-right:max(20px, env(safe-area-inset-right, 0px))}
+  .skip{position:absolute;left:-999px;top:8px;background:var(--gold);color:var(--paper-ink);padding:8px 14px;z-index:99}
   .skip:focus{left:8px}
-  h1,h2,.brand,.pop-name,.ticket h2{font-family:"DM Serif Display",Georgia,serif;font-weight:400}
-  h2{font-size:clamp(32px,4.6vw,46px);letter-spacing:-.01em;line-height:1.02}
-  .sec{padding:60px 0;border-top:1px solid var(--line);scroll-margin-top:var(--header)}
-  .sec-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:8px 16px;margin-bottom:26px}
-  .sec-head p{color:var(--muted);max-width:56ch}
-  .link{color:var(--red);font-weight:700;text-decoration:none}
-  .link:hover{text-decoration:underline}
+  h1,h2,.sign{font-family:var(--display);font-weight:400;text-transform:uppercase;letter-spacing:.01em;line-height:.92;text-wrap:balance}
+  h2{font-size:clamp(40px,6vw,64px)}
+  .eyebrow{font-size:13px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
+  .sec{padding-block:64px;scroll-margin-top:var(--header)}
+  .sec-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:10px 24px;margin-bottom:28px}
+  .sec-head p{color:var(--muted);max-width:52ch}
+  .link{color:var(--gold);font-weight:600;text-decoration:none;border-bottom:1px solid var(--rule)}
+  .link:hover{border-color:var(--gold)}
 
   /* Header */
-  header{position:sticky;top:0;z-index:30;background:var(--paper);border-bottom:1px solid var(--line)}
+  header{position:sticky;top:0;z-index:30;background:var(--lacquer);border-bottom:1px solid var(--rule)}
   header .wrap{display:flex;align-items:center;justify-content:space-between;height:var(--header);gap:16px}
-  .brand{font-size:26px;letter-spacing:-.01em;text-decoration:none;display:flex;align-items:center;gap:10px}
-  .seal{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:8px;background:var(--red);color:#fff;font-family:"DM Sans",sans-serif;font-weight:700;font-size:15px;transform:rotate(-6deg)}
-  .nav{display:flex;align-items:center;gap:22px;font-size:16px}
+  .brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+  .seal{font-family:var(--han);font-weight:900;font-size:17px;line-height:1;writing-mode:vertical-rl;background:var(--red);color:var(--gold-soft);padding:6px 5px;border-radius:4px;letter-spacing:2px}
+  .brand .sign{font-size:30px;line-height:1}
+  .nav{display:flex;align-items:center;gap:24px;font-size:15px;font-weight:500}
   .nav a{text-decoration:none;color:var(--muted)}
-  .nav a:hover{color:var(--ink)}
-  .nav .btn{color:var(--on-red)}
+  .nav a:hover{color:var(--cream)}
   @media (max-width:860px){ .nav .hide{display:none} }
 
   /* Buttons */
-  .btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 22px;border-radius:999px;
-       font-weight:700;font-size:16px;text-decoration:none;white-space:nowrap}
-  .btn.primary{background:var(--red);color:var(--on-red)}
-  .btn.primary:hover{background:var(--red-dark)}
-  .btn.ghost{border:1.5px solid var(--ink);color:var(--ink)}
-  .btn.ghost:hover{background:var(--ink);color:var(--paper)}
-  .btn.sm{min-height:44px;padding:0 18px;font-size:15px}
+  .btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 24px;border-radius:6px;
+       font-weight:700;font-size:16px;text-decoration:none;white-space:nowrap;letter-spacing:.01em}
+  .btn.gold{background:var(--gold);color:var(--paper-ink)}
+  .btn.gold:hover{background:var(--gold-soft)}
+  .btn.line{border:1.5px solid var(--gold);color:var(--gold)}
+  .btn.line:hover{background:var(--gold);color:var(--paper-ink)}
+  .nav .btn{min-height:44px;padding:0 18px;font-size:15px}
+  @media (prefers-reduced-motion: no-preference){ .btn{transition:background .2s, transform .15s} .btn:active{transform:scale(.97)} }
 
-  /* Hero */
-  .hero{padding:40px 0 32px;overflow:hidden}
-  .hero .wrap{display:grid;gap:36px;align-items:center;grid-template-columns:1fr}
-  @media (min-width:900px){ .hero{padding:64px 0 48px} .hero .wrap{grid-template-columns:1.05fr .95fr;gap:56px} }
-  .status{display:inline-flex;align-items:center;gap:8px;font-size:15px;font-weight:700;background:var(--soft);padding:6px 12px;border-radius:999px}
-  .dot{width:9px;height:9px;border-radius:50%;background:#a39a92}
-  .dot.open{background:#2f9a55}
-  h1{font-size:clamp(44px,7vw,80px);line-height:.95;letter-spacing:-.02em;margin-top:16px;max-width:12ch}
-  h1 em{font-style:italic;color:var(--red)}
-  .hero p.lead{color:var(--muted);font-size:19px;margin-top:16px;max-width:40ch}
-  .hero .actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:24px}
+  /* Hero: the board */
+  .hero{padding-block:36px 28px}
+  .board{position:relative;border:2px solid var(--gold);border-radius:14px;padding:6px;background:var(--board);
+         box-shadow:0 0 0 6px var(--lacquer), 0 0 0 7px var(--rule), 0 30px 80px -30px rgba(196,38,29,.45)}
+  .board-in{border:1px solid var(--rule);border-radius:10px;display:grid;grid-template-columns:1fr;gap:0}
+  @media (min-width:920px){ .board-in{grid-template-columns:1.25fr 1fr} }
+  .board-main{padding:34px 28px 30px;min-width:0}
+  @media (min-width:920px){ .board-main{padding:48px 44px 40px;border-right:1px solid var(--rule)} }
+  .status{display:inline-flex;align-items:center;gap:9px;font-size:14px;font-weight:600;border:1px solid var(--rule);padding:6px 12px;border-radius:999px;color:var(--cream)}
+  .dot{width:9px;height:9px;border-radius:50%;background:#8a7a6e}
+  .dot.open{background:#3fcf7f;box-shadow:0 0 10px #3fcf7f}
+  h1{font-size:clamp(52px,6.6vw,86px);margin-top:20px}
+  .board-side{grid-template-rows:1fr 1fr}
+  h1 .g{color:var(--gold)}
+  h1 .r{color:var(--red);text-shadow:0 0 28px rgba(196,38,29,.5)}
+  .lead{color:var(--muted);font-size:18px;margin-top:18px;max-width:40ch}
+  .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
   .rating{margin-top:18px;font-size:15px;color:var(--muted)}
-  .rating .stars{color:var(--gold);letter-spacing:1px}
+  .rating b{color:var(--gold);letter-spacing:1px}
+  .board-side{display:grid;grid-template-rows:auto auto;border-top:1px solid var(--rule)}
+  @media (min-width:920px){ .board-side{border-top:0} }
+  .lit{display:flex;flex-direction:column;gap:6px;padding:28px;text-decoration:none;position:relative;overflow:hidden}
+  .lit + .lit{border-top:1px solid var(--rule)}
+  .lit.red{background:linear-gradient(160deg,var(--red),var(--red-deep))}
+  .lit.jade{background:linear-gradient(160deg,var(--jade),#1d5c45)}
+  .lit .eyebrow{color:var(--gold-soft)}
+  .lit .sign{font-size:clamp(34px,4.2vw,46px);color:var(--cream)}
+  .lit .price{font-family:var(--display);font-size:clamp(48px,6vw,68px);line-height:1;color:var(--gold-soft)}
+  .lit .price small{font-family:var(--body);font-size:15px;font-weight:600;color:var(--cream);margin-right:6px;letter-spacing:0}
+  .lit p{font-size:15.5px;color:var(--cream);opacity:.92;max-width:38ch}
+  .lit .more{margin-top:6px;font-weight:700;font-size:15px;color:var(--cream);text-decoration:underline;text-underline-offset:4px}
+  .lit::after{content:"";position:absolute;inset:0;background:radial-gradient(120% 70% at 90% 0%,rgba(255,255,255,.14),transparent 60%);pointer-events:none}
 
-  /* Day special ticket */
-  .ticket{position:relative;background:var(--red);color:#fff;border-radius:24px;padding:30px 28px 26px;box-shadow:0 24px 50px -24px rgba(143,26,21,.55)}
-  .ticket::before,.ticket::after{content:"";position:absolute;top:118px;width:26px;height:26px;border-radius:50%;background:var(--paper)}
-  .ticket::before{left:-13px} .ticket::after{right:-13px}
-  .ticket .eyebrow{font-size:13px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--gold)}
-  .ticket h2{font-size:clamp(34px,4vw,44px);line-height:1;margin-top:8px;color:#fff}
-  .ticket h2{padding-right:72px}
-  @media (max-width:420px){ .ticket h2{padding-right:0} }
-  .ticket .from{margin-top:10px;font-size:17px;opacity:.92}
-  .ticket .from b{font-size:30px;color:var(--gold);font-family:"DM Serif Display",serif;font-weight:400;margin-left:4px}
-  .ticket .tear{border-top:2px dashed rgba(255,255,255,.4);margin:22px -6px 18px}
-  .ticket ol{list-style:none;display:grid;gap:12px;counter-reset:s}
-  .ticket li{display:flex;gap:12px;align-items:flex-start;font-size:16.5px;line-height:1.35}
-  .ticket li::before{counter-increment:s;content:counter(s);flex:none;display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--gold);color:#1f1714;font-weight:700;font-size:14px}
-  .ticket .go{display:inline-block;margin-top:20px;color:#fff;font-weight:700;text-decoration:underline;text-underline-offset:4px}
-  .ticket .stamp{position:absolute;right:20px;top:20px;width:74px;height:74px;border-radius:50%;border:2px solid var(--gold);color:var(--gold);
-                 display:grid;place-items:center;text-align:center;font-size:11px;font-weight:700;letter-spacing:.08em;line-height:1.15;text-transform:uppercase;transform:rotate(12deg)}
-  @media (max-width:420px){ .ticket .stamp{display:none} }
+  /* Info row */
+  .info{display:grid;grid-template-columns:1fr;margin-top:22px;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+  @media (min-width:760px){ .info{grid-template-columns:repeat(3,1fr)} }
+  .info a{display:flex;flex-direction:column;gap:2px;padding:16px 4px;text-decoration:none;min-width:0}
+  .info a + a{border-top:1px solid var(--rule)}
+  @media (min-width:760px){ .info a{padding:18px 22px} .info a:first-child{padding-left:0} .info a + a{border-top:0;border-left:1px solid var(--rule)} }
+  .info .k{font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:600}
+  .info .v{font-weight:600;font-size:17px}
+  .info .go{color:var(--gold);font-size:14.5px;font-weight:600}
+  .info a:hover .go{text-decoration:underline}
 
-  /* Price ribbon */
-  .ribbon{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--soft);overflow:hidden;white-space:nowrap}
-  .ribbon .track{display:inline-flex;gap:40px;padding:14px 20px;font-weight:700;font-size:16px}
-  .ribbon .track span{display:inline-flex;gap:8px}
-  .ribbon .track b{color:var(--red)}
-  @media (prefers-reduced-motion: no-preference){ .ribbon .track{animation:slide 38s linear infinite} @keyframes slide{to{transform:translateX(-50%)}} }
-
-  /* At a glance */
-  .hero .wrap.glance-wrap{display:block}
-  .glance{display:grid;grid-template-columns:1fr;border:1px solid var(--line);border-radius:18px;overflow:hidden;margin-top:36px}
-  @media (min-width:760px){ .glance{grid-template-columns:repeat(3,1fr)} }
-  .glance a{display:flex;flex-direction:column;gap:2px;padding:16px 20px;text-decoration:none;min-height:76px;justify-content:center}
-  .glance a + a{border-top:1px solid var(--line)}
-  @media (min-width:760px){ .glance a + a{border-top:0;border-left:1px solid var(--line)} }
-  .glance a:hover{background:var(--soft)}
-  .glance .k{font-size:14px;color:var(--muted)}
-  .glance .v{font-weight:700;font-size:17px}
-  .glance .go{color:var(--red);font-size:15px;font-weight:700}
-
-  /* Popular */
-  .pops{display:grid;gap:16px;grid-template-columns:1fr}
+  /* Most ordered: lit tiles */
+  .pops{display:grid;gap:14px;grid-template-columns:1fr}
   @media (min-width:600px){ .pops{grid-template-columns:repeat(2,1fr)} }
-  @media (min-width:980px){ .pops{grid-template-columns:repeat(4,1fr)} }
-  .pop{position:relative;text-decoration:none;display:flex;flex-direction:column;gap:6px;background:var(--soft);border-radius:20px;padding:22px 22px 20px;min-height:220px;transition:transform .25s, background .25s}
-  .pop:hover{transform:translateY(-4px)}
-  .pop-num{font-family:"DM Serif Display",serif;font-size:64px;line-height:.9;color:var(--red);opacity:.9}
-  .badge{align-self:flex-start;background:var(--gold);color:#1f1714;font-size:12.5px;font-weight:700;padding:3px 10px;border-radius:999px;margin-bottom:10px}
-  .pop-name{font-size:25px;line-height:1.1;margin-top:6px}
+  @media (min-width:1000px){ .pops{grid-template-columns:repeat(4,1fr)} }
+  .pop{display:flex;flex-direction:column;gap:6px;text-decoration:none;background:var(--panel);border:1px solid var(--rule);border-radius:10px;padding:20px 20px 18px;min-height:190px;transition:border-color .2s, transform .2s}
+  .pop:hover{border-color:var(--gold);transform:translateY(-3px)}
+  @media (prefers-reduced-motion: reduce){ .pop{transition:none} .pop:hover{transform:none} }
+  .pop-rank{font-size:12.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+  .pop-name{font-family:var(--display);text-transform:uppercase;font-size:30px;line-height:1;margin-top:4px}
   .pop-blurb{color:var(--muted);font-size:15px;line-height:1.4}
-  .pop-price{margin-top:auto;padding-top:10px;font-weight:700;font-size:18px;font-variant-numeric:tabular-nums}
+  .pop-price{margin-top:auto;padding-top:10px;font-family:var(--display);font-size:32px;color:var(--gold-soft);line-height:1}
+  .src{color:var(--muted);font-size:13.5px;margin-top:14px}
 
-  /* Menu */
-  .chips{position:sticky;top:var(--header);z-index:20;background:var(--paper);border-bottom:1px solid var(--line);
-         display:flex;gap:8px;overflow-x:auto;padding:8px 20px;scrollbar-width:none;margin:0 -20px}
+  /* Menu board */
+  .menu-wrap{display:grid;grid-template-columns:1fr;gap:0 40px}
+  @media (min-width:1000px){ .menu-wrap{grid-template-columns:210px 1fr} }
+  .chips{position:sticky;top:var(--header);z-index:20;background:var(--lacquer);display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;
+         padding:10px max(20px, env(safe-area-inset-right, 0px)) 10px max(20px, env(safe-area-inset-left, 0px));margin:0 calc(-1 * max(20px, env(safe-area-inset-left, 0px)));border-bottom:1px solid var(--rule)}
   .chips::-webkit-scrollbar{display:none}
-  .chips a{flex:none;display:inline-flex;align-items:center;min-height:42px;padding:0 16px;border-radius:999px;background:var(--soft);
-           font-size:15px;font-weight:700;text-decoration:none}
-  .chips a:hover,.chips a.on{background:var(--ink);color:var(--paper)}
-  .menu{display:grid;gap:0 64px;grid-template-columns:1fr}
-  @media (min-width:900px){ .menu{grid-template-columns:1fr 1fr} }
-  .group{padding-top:30px;scroll-margin-top:calc(var(--header) + var(--chips) - 20px)}
-  .group h3{font-family:"DM Serif Display",serif;font-weight:400;font-size:28px;color:var(--red);line-height:1.1}
-  .gnote{color:var(--muted);font-size:15px;margin-top:4px;line-height:1.45}
-  .group ul{list-style:none;margin-top:6px}
-  .group li{padding:11px 0;border-bottom:1px solid var(--line);scroll-margin-top:calc(var(--header) + var(--chips) + 12px)}
+  .chips a{flex:none;display:inline-flex;align-items:center;min-height:42px;padding:0 14px;border:1px solid var(--rule);border-radius:6px;font-size:14.5px;font-weight:600;text-decoration:none;color:var(--cream)}
+  .chips a:hover,.chips a.on{background:var(--gold);color:var(--paper-ink);border-color:var(--gold)}
+  @media (min-width:1000px){
+    .chips{flex-direction:column;align-self:start;top:calc(var(--header) + 20px);margin:0;padding:0;border:0;gap:2px;overflow:visible}
+    .chips a{border:0;border-left:2px solid var(--rule);border-radius:0;padding:0 14px;min-height:42px}
+    .chips a:hover,.chips a.on{background:transparent;color:var(--gold);border-left-color:var(--gold)}
+  }
+  .menu{columns:1;column-gap:24px;min-width:0}
+  @media (min-width:700px){ .menu{columns:2} }
+  .group{break-inside:avoid;background:var(--board);border:1px solid var(--rule);border-radius:10px;padding:20px 20px 10px;margin:20px 0 4px;
+         scroll-margin-top:calc(var(--header) + 72px);display:inline-block;width:100%}
+  @media (min-width:1000px){ .group{scroll-margin-top:calc(var(--header) + 16px)} }
+  .group h3{display:flex;align-items:center;gap:12px;font-family:var(--display);font-weight:400;text-transform:uppercase;font-size:30px;line-height:1;color:var(--gold)}
+  .group h3::after{content:"";flex:1;height:1px;background:var(--rule)}
+  .gnote{color:var(--muted);font-size:14.5px;margin-top:8px;line-height:1.45}
+  .group ul{list-style:none;margin-top:8px}
+  .group li{padding:9px 0;border-bottom:1px dashed var(--rule);scroll-margin-top:calc(var(--header) + 90px)}
   .group li:last-child{border-bottom:0}
-  .group li:target,.group li.hl{background:var(--soft);border-radius:10px;padding-left:10px;padding-right:10px;transition:background .6s}
+  .group li:target,.group li.hl{background:rgba(234,181,76,.14);border-radius:6px;padding-left:8px;padding-right:8px;transition:background .6s}
   .top{display:flex;align-items:baseline;gap:8px}
-  .name{font-weight:600}
-  .dots{flex:1;border-bottom:2px dotted var(--line);transform:translateY(-4px);min-width:12px}
-  .price{font-weight:700;font-variant-numeric:tabular-nums;white-space:nowrap}
-  .plus{color:var(--red);margin-left:1px}
-  .desc{display:block;color:var(--muted);font-size:15px;line-height:1.45;margin-top:2px}
+  .name{font-weight:500;min-width:0}
+  .dots{flex:1;border-bottom:2px dotted rgba(234,181,76,.22);transform:translateY(-4px);min-width:10px}
+  .price{font-weight:700;color:var(--gold-soft);font-variant-numeric:tabular-nums;white-space:nowrap}
+  .plus{color:var(--red);margin-left:1px;font-weight:700}
+  .desc{display:block;color:var(--muted);font-size:14.5px;line-height:1.45;margin-top:2px}
   .note{color:var(--muted);font-size:14.5px;margin-top:26px;max-width:80ch}
 
-  /* Party trays */
-  .trays{display:grid;gap:16px;grid-template-columns:1fr}
-  @media (min-width:640px){ .trays{grid-template-columns:repeat(2,1fr)} }
-  @media (min-width:980px){ .trays{grid-template-columns:repeat(3,1fr)} }
-  .tray{border:1px solid var(--line);border-radius:18px;padding:20px 22px}
-  .tray h3{font-family:"DM Serif Display",serif;font-weight:400;font-size:25px;line-height:1.1}
-  .tnote{color:var(--muted);font-size:14.5px;margin-top:4px;line-height:1.4}
-  .tray table{width:100%;border-collapse:collapse;margin-top:10px;font-size:16px}
-  .tray td{padding:6px 0;border-bottom:1px dotted var(--line)}
-  .tray tr:last-child td{border-bottom:0}
-  .tray td:last-child{text-align:right;font-weight:700;font-variant-numeric:tabular-nums}
-  .tray-cta{display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center;margin-top:24px;padding:20px 22px;border-radius:18px;background:var(--soft)}
-  .tray-cta p{flex:1;min-width:220px}
+  /* Party trays: order slips */
+  .trays-sec{background:var(--red-deep);background-image:radial-gradient(90% 80% at 10% 0%, rgba(255,255,255,.07), transparent 60%)}
+  .trays-sec .sec-head p{color:var(--cream);opacity:.9}
+  .trays-sec .eyebrow{color:var(--gold-soft)}
+  .slips{display:grid;gap:22px 18px;grid-template-columns:1fr;align-items:start}
+  @media (min-width:640px){ .slips{grid-template-columns:repeat(2,1fr)} }
+  @media (min-width:1000px){ .slips{grid-template-columns:repeat(3,1fr)} }
+  .slip{background:var(--paper);color:var(--paper-ink);font-family:var(--slip);padding:22px 22px 18px;border-radius:3px;position:relative;
+        box-shadow:0 14px 30px -16px rgba(0,0,0,.6);background-image:repeating-linear-gradient(var(--paper) 0 29px, var(--paper-rule) 29px 30px)}
+  .slip::before{content:"";position:absolute;left:0;right:0;top:-6px;height:12px;background:radial-gradient(circle at 6px 0, transparent 6px, var(--paper) 6.5px) 0 0/12px 12px repeat-x}
+  .slip h3{font-family:var(--slip);font-weight:700;font-size:20px;text-transform:uppercase;letter-spacing:.04em}
+  .tnote{font-size:14px;opacity:.75;margin-top:2px;line-height:1.35}
+  .slip table{width:100%;border-collapse:collapse;margin-top:10px;font-size:16px}
+  .slip td{padding:4px 0;line-height:22px}
+  .slip td:last-child{text-align:right;font-weight:700;font-variant-numeric:tabular-nums;white-space:nowrap;padding-left:10px}
+  .call-slip{display:flex;flex-wrap:wrap;gap:14px 24px;align-items:center;justify-content:space-between;margin-top:26px;padding:20px 24px;border:1px dashed var(--gold-soft);border-radius:10px}
+  .call-slip p{flex:1;min-width:220px;color:var(--cream)}
 
   /* Reviews */
-  .quotes{display:grid;gap:24px;grid-template-columns:1fr}
-  @media (min-width:760px){ .quotes{grid-template-columns:1.3fr 1fr;gap:56px;align-items:center} }
-  .quotes figure{border-left:3px solid var(--gold);padding-left:18px}
-  .quotes blockquote{font-family:"DM Serif Display",serif;font-size:clamp(22px,2.6vw,28px);line-height:1.25}
-  .quotes cite{display:block;font-style:normal;color:var(--muted);font-size:15px;margin-top:10px}
-  .scores{display:grid;gap:12px}
-  .score{display:flex;align-items:baseline;gap:14px;padding:14px 18px;border-radius:16px;background:var(--soft)}
-  .score b{font-family:"DM Serif Display",serif;font-weight:400;font-size:38px;line-height:1;color:var(--red);min-width:76px}
+  .say{display:grid;gap:28px;grid-template-columns:1fr;align-items:center}
+  @media (min-width:860px){ .say{grid-template-columns:1.4fr 1fr;gap:56px} }
+  .say blockquote{font-family:var(--display);text-transform:uppercase;font-size:clamp(30px,4vw,48px);line-height:1.02;color:var(--cream)}
+  .say blockquote::before{content:"\201C";display:block;color:var(--red);font-size:1.6em;line-height:.6;margin-bottom:6px}
+  .say cite{display:block;font-style:normal;color:var(--muted);font-size:15px;margin-top:14px}
+  .scores{display:grid;gap:0;border-top:1px solid var(--rule)}
+  .score{display:flex;align-items:baseline;gap:16px;padding:14px 0;border-bottom:1px solid var(--rule)}
+  .score b{font-family:var(--display);font-weight:400;font-size:44px;line-height:1;color:var(--gold);min-width:96px}
   .score span{color:var(--muted);font-size:15.5px}
 
   /* Visit */
-  .visit{display:grid;gap:32px;grid-template-columns:1fr;align-items:start}
+  .visit{display:grid;gap:36px;grid-template-columns:1fr;align-items:start}
   @media (min-width:900px){ .visit{grid-template-columns:1fr 1fr;gap:56px} }
-  .hours{width:100%;border-collapse:collapse}
-  .hours td{padding:10px 0;border-bottom:1px solid var(--line)}
-  .hours td:last-child{text-align:right}
-  .hours tr.today td{font-weight:700;color:var(--red)}
+  .hours{width:100%;border-collapse:collapse;font-size:17px}
+  .hours td{padding:11px 0;border-bottom:1px dashed var(--rule)}
+  .hours td:last-child{text-align:right;font-variant-numeric:tabular-nums}
+  .hours tr.today td{color:var(--gold);font-weight:700}
   .hours tr.closed td:last-child{color:var(--muted)}
   .small{font-size:15px;color:var(--muted);margin-top:12px}
-  .place p.addr{font-size:20px}
-  .place .actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
-  .map{border-radius:18px;overflow:hidden;border:1px solid var(--line);aspect-ratio:4/3;margin-top:22px;background:var(--soft)}
-  .map iframe{width:100%;height:100%;border:0}
+  .addr{font-family:var(--display);text-transform:uppercase;font-size:clamp(32px,4vw,42px);line-height:1}
+  .place .actions{margin-top:20px}
+  .map{border-radius:10px;overflow:hidden;border:1px solid var(--rule);aspect-ratio:4/3;max-width:100%;margin-top:24px;background:var(--board)}
+  .map iframe{width:100%;height:100%;border:0;filter:saturate(.8)}
 
   /* Footer */
-  footer{border-top:1px solid var(--line);padding:32px 0 40px;font-size:15px;color:var(--muted)}
+  footer{border-top:1px solid var(--rule);padding-block:32px 40px;font-size:14.5px;color:var(--muted)}
   footer .wrap{display:flex;flex-wrap:wrap;gap:14px 28px;justify-content:space-between;align-items:center}
   footer nav{display:flex;flex-wrap:wrap;gap:4px 18px}
   footer a{text-decoration:none;display:inline-flex;align-items:center;min-height:32px}
-  footer a:hover{color:var(--ink);text-decoration:underline}
+  footer a:hover{color:var(--cream);text-decoration:underline}
 
-  /* Motion */
   @media (prefers-reduced-motion: no-preference){
     .dot.open{animation:pulse 2.4s ease-out infinite}
-    @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(47,154,85,.45)}70%{box-shadow:0 0 0 8px rgba(47,154,85,0)}100%{box-shadow:0 0 0 0 rgba(47,154,85,0)}}
-    .btn{transition:transform .2s ease, background .2s}
-    .btn:not(.magnetic):hover{transform:translateY(-2px)}
-    .btn:not(.magnetic):active{transform:translateY(0) scale(.97)}
-    .btn.magnetic{transition:background .2s}
-  }
-  @media (prefers-reduced-motion: reduce){ .pop{transition:none} .pop:hover{transform:none} }
-  .btn{position:relative;isolation:isolate}
-  .btn .rip{position:absolute;inset:0;border-radius:inherit;overflow:hidden;pointer-events:none;z-index:0}
-  .btn .rip i{position:absolute;width:500px;height:500px;margin:-250px 0 0 -250px;border-radius:50%;background:#fff;opacity:0;pointer-events:none}
-  .btn.ghost .rip i{background:currentColor}
-  .btn > .t{position:relative;z-index:1}
-  .btn.pulse::before{content:"";position:absolute;inset:0;border-radius:inherit;background:var(--red);z-index:-1;opacity:0}
-  @media (hover:hover) and (prefers-reduced-motion: no-preference){
-    .btn.pulse:hover::before{animation:btnpulse 1s linear infinite}
-    @keyframes btnpulse{0%{transform:scale(1);opacity:.8}50%{transform:scale(1.12);opacity:0}100%{transform:scale(1);opacity:.8}}
+    @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(63,207,127,.5)}70%{box-shadow:0 0 0 8px rgba(63,207,127,0)}100%{box-shadow:0 0 0 0 rgba(63,207,127,0)}}
   }
 
   /* Phone action bar */
   .bar{display:none}
   @media (max-width:700px){
     .bar{display:grid;grid-template-columns:1.1fr 1fr 1fr;gap:8px;position:fixed;left:0;right:0;bottom:0;z-index:40;
-         padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:var(--paper);border-top:1px solid var(--line)}
+         padding:10px max(12px, env(safe-area-inset-right, 0px)) calc(10px + env(safe-area-inset-bottom, 0px)) max(12px, env(safe-area-inset-left, 0px));
+         background:var(--lacquer);border-top:1px solid var(--rule)}
     .bar .btn{padding:0 6px;font-size:15px}
-    body{padding-bottom:calc(72px + env(safe-area-inset-bottom))}
+    body{padding-bottom:calc(72px + env(safe-area-inset-bottom, 0px))}
   }
 </style>
 </head>
@@ -244,12 +232,12 @@
 
 <header>
   <div class="wrap">
-    <a class="brand" href="#top" aria-label="Mr. Wonton, back to top"><span class="seal" aria-hidden="true">MW</span>Mr. Wonton</a>
+    <a class="brand" href="#top" aria-label="Mr. Wonton, back to top"><span class="seal" aria-hidden="true">雲吞</span><span class="sign">Mr. Wonton</span></a>
     <nav class="nav" aria-label="Main">
       <a class="hide" href="#menu">Menu</a>
       <a class="hide" href="#trays">Party trays</a>
       <a class="hide" href="#visit">Hours and location</a>
-      <a class="btn primary sm" href="tel:+17705914288">Call to order</a>
+      <a class="btn gold" href="tel:+17705914288">Call to order</a>
     </nav>
   </div>
 </header>
@@ -257,32 +245,37 @@
 <main id="top">
   <section class="hero" aria-label="Welcome">
     <div class="wrap">
-      <div>
-        <span class="status"><span class="dot" id="dot"></span><span id="status">Open Tuesday to Sunday</span></span>
-        <h1>Chinese takeout, <em>done right</em> on Canton Road.</h1>
-        <p class="lead">Generous plates, fair prices and your order ready fast. Call ahead or order online for pickup.</p>
-        <div class="actions">
-          <a class="btn primary pulse magnetic" href="tel:+17705914288">Call (770) 591-4288</a>
-          <a class="btn ghost magnetic" href="https://www.mrwontononline.com/" target="_blank" rel="noopener">Order online</a>
+      <div class="board">
+        <div class="board-in">
+          <div class="board-main">
+            <span class="status"><span class="dot" id="dot"></span><span id="status">Open Tuesday to Sunday</span></span>
+            <h1><span class="g">Big plates.</span><br>Fair prices.<br><span class="r">Ready fast.</span></h1>
+            <p class="lead">Chinese takeout on Canton Road in Marietta since 2014. Call ahead or order online for pickup.</p>
+            <div class="actions">
+              <a class="btn gold" href="tel:+17705914288">Call (770) 591-4288</a>
+              <a class="btn line" href="https://www.mrwontononline.com/" target="_blank" rel="noopener">Order online</a>
+            </div>
+            <p class="rating"><b aria-hidden="true">★★★★★</b> 4.8 from 425 Grubhub ratings</p>
+          </div>
+          <div class="board-side">
+            <a class="lit red" href="#specials">
+              <span class="eyebrow">Day special for one · all day</span>
+              <span class="sign">Full meal deal</span>
+              <span class="price"><small>from</small>$11.55</span>
+              <p>Pick from 30 entrees, with vegetable fried rice and an egg roll. Soup instead for 50¢.</p>
+              <span class="more">See the 30 day specials</span>
+            </a>
+            <a class="lit jade" href="#trays">
+              <span class="eyebrow">Party trays · serves 8 to 10</span>
+              <span class="sign">Feed the whole crew</span>
+              <span class="price"><small>from</small>$14</span>
+              <p>Egg rolls, wings, crab rangoon, lo mein, fried rice and entrees by the tray.</p>
+              <span class="more">See tray prices</span>
+            </a>
+          </div>
         </div>
-        <p class="rating"><span class="stars" aria-hidden="true">★★★★★</span> 4.8 from 425 Grubhub ratings</p>
       </div>
-      <aside class="ticket" aria-label="Day special">
-        <span class="stamp" aria-hidden="true">Served<br>all<br>day</span>
-        <span class="eyebrow">Day special for one</span>
-        <h2>A full meal, one low price.</h2>
-        <p class="from">Starting at <b>$11.55</b></p>
-        <div class="tear" aria-hidden="true"></div>
-        <ol>
-          <li>Pick from 30 favorites, like sesame chicken, beef with broccoli or General Tso's.</li>
-          <li>It comes with vegetable fried rice.</li>
-          <li>Plus an egg roll, or soup for 50¢ more.</li>
-        </ol>
-        <a class="go" href="#specials">See all 30 day specials</a>
-      </aside>
-    </div>
-    <div class="wrap glance-wrap">
-      <div class="glance" aria-label="At a glance">
+      <div class="info" aria-label="At a glance">
         <a href="#visit"><span class="k">Today</span><span class="v" id="today">See our hours</span><span class="go">All hours</span></a>
         <a href="https://www.google.com/maps/dir/?api=1&destination=3595+Canton+Rd+Ste+328+Marietta+GA+30066" target="_blank" rel="noopener"><span class="k">Find us</span><span class="v">3595 Canton Rd, Suite 328, Marietta</span><span class="go">Get directions</span></a>
         <a href="tel:+17705914288"><span class="k">Call to order</span><span class="v">(770) 591-4288</span><span class="go">Tap to call</span></a>
@@ -290,59 +283,50 @@
     </div>
   </section>
 
-  <div class="ribbon" aria-hidden="true">
-    <div class="track">
-      <span>Egg roll <b>$1.59</b></span><span>Wonton soup <b>$2.75</b></span><span>Crab rangoon (5) <b>$4.25</b></span><span>Vegetable lo mein <b>$6.95</b></span><span>Chicken fried rice <b>$6.95</b></span><span>Day special <b>$11.55</b></span><span>Party trays from <b>$14</b></span>
-      <span>Egg roll <b>$1.59</b></span><span>Wonton soup <b>$2.75</b></span><span>Crab rangoon (5) <b>$4.25</b></span><span>Vegetable lo mein <b>$6.95</b></span><span>Chicken fried rice <b>$6.95</b></span><span>Day special <b>$11.55</b></span><span>Party trays from <b>$14</b></span>
-    </div>
-  </div>
-
-  <section class="sec" id="popular" style="border-top:0">
+  <section class="sec" id="popular" style="padding-top:28px">
     <div class="wrap">
       <div class="sec-head">
-        <h2>Most ordered</h2>
+        <div><p class="eyebrow">What Marietta orders</p><h2>Most ordered</h2></div>
         <a class="link" href="#menu">See the full menu</a>
       </div>
       <div class="pops">
         <a class="pop" href="#item-appetizers-crab-rangoon-5">
-          <span class="badge">#1 most ordered</span>
-          <span class="pop-num" aria-hidden="true">01</span>
+          <span class="pop-rank">#1 most ordered</span>
           <span class="pop-name">Crab rangoon (5)</span>
           <span class="pop-blurb">Crispy wontons with a cream cheese filling</span>
           <span class="pop-price">$4.25</span>
         </a>
         <a class="pop" href="#item-specials-sesame-chicken">
-          <span class="badge">#2 most ordered</span>
-          <span class="pop-num" aria-hidden="true">02</span>
+          <span class="pop-rank">#2 most ordered</span>
           <span class="pop-name">Sesame chicken</span>
           <span class="pop-blurb">Day special with vegetable fried rice and an egg roll</span>
           <span class="pop-price">$11.95</span>
         </a>
         <a class="pop" href="#item-appetizers-vegetable-spring-roll-each">
-          <span class="badge">#3 most ordered</span>
-          <span class="pop-num" aria-hidden="true">03</span>
+          <span class="pop-rank">#3 most ordered</span>
           <span class="pop-name">Vegetable spring roll</span>
           <span class="pop-blurb">Crispy, golden and only $1.59</span>
           <span class="pop-price">$1.59</span>
         </a>
         <a class="pop" href="#item-specials-sweet-and-sour-chicken">
-          <span class="badge">#4 most ordered</span>
-          <span class="pop-num" aria-hidden="true">04</span>
+          <span class="pop-rank">#4 most ordered</span>
           <span class="pop-name">Sweet and sour chicken</span>
           <span class="pop-blurb">Day special with vegetable fried rice and an egg roll</span>
           <span class="pop-price">$11.55</span>
         </a>
       </div>
+      <p class="src">Ranked by Grubhub's "most ordered" list for Mr. Wonton.</p>
     </div>
   </section>
 
   <section class="sec" id="menu">
     <div class="wrap">
       <div class="sec-head">
-        <h2>Menu</h2>
+        <div><p class="eyebrow">165 dishes</p><h2>The menu</h2></div>
         <p>Prices from our own online ordering page. A <b class="plus">+</b> means the dish comes in more than one size; the smallest size is shown.</p>
       </div>
-      <nav class="chips" aria-label="Menu categories">
+      <div class="menu-wrap">
+        <nav class="chips" aria-label="Menu categories">
         <a href="#specials">Day specials for one</a>
         <a href="#appetizers">Appetizers</a>
         <a href="#soup">Soup</a>
@@ -357,11 +341,10 @@
         <a href="#chefs-special">Chef&#x27;s specials</a>
         <a href="#diet">Steamed (diet menu)</a>
         <a href="#sides">Sides</a>
-      </nav>
-      <div class="menu">
-        <div class="menu-col">
-          <div class="group" id="specials">
-            <h3>Day specials for one</h3>
+        </nav>
+        <div class="menu">
+          <div class="group wide" id="specials">
+            <h3><span>Day specials for one</span></h3>
             <p class="gnote">Served all day with vegetable fried rice and an egg roll. Swap the egg roll for egg drop, hot and sour or wonton soup for 50¢. Chicken or beef fried rice is $2 more; shrimp or house special fried rice, or lo mein, is $2 more.</p>
             <ul>
               <li id="item-specials-chicken-with-broccoli"><div class="top"><span class="name">Chicken with broccoli</span><span class="dots" aria-hidden="true"></span><span class="price">$11.55</span></div></li>
@@ -396,8 +379,8 @@
               <li id="item-specials-szechuan-shrimp"><div class="top"><span class="name">Szechuan shrimp</span><span class="dots" aria-hidden="true"></span><span class="price">$11.95</span></div></li>
             </ul>
           </div>
-          <div class="group" id="appetizers">
-            <h3>Appetizers</h3>
+          <div class="group wide" id="appetizers">
+            <h3><span>Appetizers</span></h3>
             <ul>
               <li id="item-appetizers-pork-egg-roll-each"><div class="top"><span class="name">Pork egg roll (each)</span><span class="dots" aria-hidden="true"></span><span class="price">$1.59</span></div></li>
               <li id="item-appetizers-shrimp-roll-each"><div class="top"><span class="name">Shrimp roll (each)</span><span class="dots" aria-hidden="true"></span><span class="price">$1.59</span></div></li>
@@ -425,7 +408,7 @@
             </ul>
           </div>
           <div class="group" id="soup">
-            <h3>Soup</h3>
+            <h3><span>Soup</span></h3>
             <p class="gnote">Served with fried noodle chips.</p>
             <ul>
               <li id="item-soup-wonton-soup"><div class="top"><span class="name">Wonton soup</span><span class="dots" aria-hidden="true"></span><span class="price">$2.75<abbr class="plus" title="More sizes available; smallest size shown">+</abbr></span></div></li>
@@ -441,7 +424,7 @@
             </ul>
           </div>
           <div class="group" id="lo-mein">
-            <h3>Lo mein</h3>
+            <h3><span>Lo mein</span></h3>
             <p class="gnote">Soft Chinese noodles.</p>
             <ul>
               <li id="item-lo-mein-vegetable-lo-mein"><div class="top"><span class="name">Vegetable lo mein</span><span class="dots" aria-hidden="true"></span><span class="price">$6.95<abbr class="plus" title="More sizes available; smallest size shown">+</abbr></span></div></li>
@@ -454,7 +437,7 @@
             </ul>
           </div>
           <div class="group" id="mai-fun">
-            <h3>Mai fun</h3>
+            <h3><span>Mai fun</span></h3>
             <p class="gnote">Thin rice noodles. Large size.</p>
             <ul>
               <li id="item-mai-fun-fresh-vegetable-mai-fun"><div class="top"><span class="name">Fresh vegetable mai fun</span><span class="dots" aria-hidden="true"></span><span class="price">$11.25</span></div></li>
@@ -468,7 +451,7 @@
             </ul>
           </div>
           <div class="group" id="fried-rice">
-            <h3>Fried rice</h3>
+            <h3><span>Fried rice</span></h3>
             <ul>
               <li id="item-fried-rice-vegetable-fried-rice"><div class="top"><span class="name">Vegetable fried rice</span><span class="dots" aria-hidden="true"></span><span class="price">$6.75<abbr class="plus" title="More sizes available; smallest size shown">+</abbr></span></div></li>
               <li id="item-fried-rice-roast-pork-fried-rice"><div class="top"><span class="name">Roast pork fried rice</span><span class="dots" aria-hidden="true"></span><span class="price">$6.95<abbr class="plus" title="More sizes available; smallest size shown">+</abbr></span></div></li>
@@ -480,7 +463,7 @@
             </ul>
           </div>
           <div class="group" id="egg-foo-young">
-            <h3>Egg foo young</h3>
+            <h3><span>Egg foo young</span></h3>
             <p class="gnote">Large size, with white rice.</p>
             <ul>
               <li id="item-egg-foo-young-vegetable-egg-foo-young"><div class="top"><span class="name">Vegetable egg foo young</span><span class="dots" aria-hidden="true"></span><span class="price">$11.25</span></div></li>
@@ -491,10 +474,8 @@
               <li id="item-egg-foo-young-house-egg-foo-young"><div class="top"><span class="name">House egg foo young</span><span class="dots" aria-hidden="true"></span><span class="price">$12.25</span></div></li>
             </ul>
           </div>
-        </div>
-        <div class="menu-col">
           <div class="group" id="vegetable">
-            <h3>Vegetable and tofu</h3>
+            <h3><span>Vegetable and tofu</span></h3>
             <p class="gnote">Large size, with white rice.</p>
             <ul>
               <li id="item-vegetable-vegetable-delight"><div class="top"><span class="name">Vegetable delight</span><span class="dots" aria-hidden="true"></span><span class="price">$11.75</span></div></li>
@@ -506,7 +487,7 @@
             </ul>
           </div>
           <div class="group" id="pork-beef">
-            <h3>Pork and beef</h3>
+            <h3><span>Pork and beef</span></h3>
             <p class="gnote">Large size, with white rice.</p>
             <ul>
               <li id="item-pork-beef-roast-pork-with-broccoli"><div class="top"><span class="name">Roast pork with broccoli</span><span class="dots" aria-hidden="true"></span><span class="price">$12.95</span></div></li>
@@ -524,8 +505,8 @@
               <li id="item-pork-beef-hot-and-spicy-beef"><div class="top"><span class="name">Hot and spicy beef</span><span class="dots" aria-hidden="true"></span><span class="price">$13.75</span></div></li>
             </ul>
           </div>
-          <div class="group" id="poultry">
-            <h3>Chicken</h3>
+          <div class="group wide" id="poultry">
+            <h3><span>Chicken</span></h3>
             <p class="gnote">Large size, with white rice.</p>
             <ul>
               <li id="item-poultry-chicken-with-broccoli"><div class="top"><span class="name">Chicken with broccoli</span><span class="dots" aria-hidden="true"></span><span class="price">$12.95</span></div><span class="desc">Sliced white-meat chicken with broccoli in brown sauce</span></li>
@@ -553,7 +534,7 @@
             </ul>
           </div>
           <div class="group" id="seafood">
-            <h3>Seafood</h3>
+            <h3><span>Seafood</span></h3>
             <p class="gnote">Large size, with white rice.</p>
             <ul>
               <li id="item-seafood-shrimp-with-broccoli"><div class="top"><span class="name">Shrimp with broccoli</span><span class="dots" aria-hidden="true"></span><span class="price">$14.25</span></div></li>
@@ -571,7 +552,7 @@
             </ul>
           </div>
           <div class="group" id="chefs-special">
-            <h3>Chef&#x27;s specials</h3>
+            <h3><span>Chef&#x27;s specials</span></h3>
             <p class="gnote">With white rice or vegetable fried rice.</p>
             <ul>
               <li id="item-chefs-special-chicken-and-shrimp"><div class="top"><span class="name">Chicken and shrimp</span><span class="dots" aria-hidden="true"></span><span class="price">$14.50</span></div><span class="desc">Sliced chicken and jumbo shrimp with Chinese vegetables in the chef&#x27;s brown sauce</span></li>
@@ -587,7 +568,7 @@
             </ul>
           </div>
           <div class="group" id="diet">
-            <h3>Steamed (diet menu)</h3>
+            <h3><span>Steamed (diet menu)</span></h3>
             <p class="gnote">No added fat, salt or sugar. Large size, with steamed rice.</p>
             <ul>
               <li id="item-diet-steamed-broccoli"><div class="top"><span class="name">Steamed broccoli</span><span class="dots" aria-hidden="true"></span><span class="price">$11.75</span></div></li>
@@ -598,7 +579,7 @@
             </ul>
           </div>
           <div class="group" id="sides">
-            <h3>Sides</h3>
+            <h3><span>Sides</span></h3>
             <ul>
               <li id="item-sides-steamed-white-rice"><div class="top"><span class="name">Steamed white rice</span><span class="dots" aria-hidden="true"></span><span class="price">$1.95<abbr class="plus" title="More sizes available; smallest size shown">+</abbr></span></div></li>
               <li id="item-sides-fried-noodle-chips"><div class="top"><span class="name">Fried noodle chips</span><span class="dots" aria-hidden="true"></span><span class="price">$0.75</span></div></li>
@@ -614,47 +595,46 @@
     </div>
   </section>
 
-  <section class="sec" id="trays">
+  <section class="sec trays-sec" id="trays">
     <div class="wrap">
       <div class="sec-head">
-        <h2>Party trays</h2>
-        <p>Feeding the office, a team or the whole family? Trays serve 8 to 10 people. Please give us 24 hours' notice.</p>
+        <div><p class="eyebrow">Office lunches, parties, game days</p><h2>Party trays</h2></div>
+        <p>Trays of rice, noodles and entrees serve 8 to 10 people. Please give us 24 hours' notice.</p>
       </div>
-      <div class="trays">
-        <div class="tray"><h3>Egg rolls or spring rolls</h3><p class="tnote">Pork egg rolls or vegetable spring rolls</p><table><tr><td>10 rolls</td><td>$14</td></tr><tr><td>20 rolls</td><td>$26</td></tr><tr><td>30 rolls</td><td>$36</td></tr><tr><td>40 rolls</td><td>$46</td></tr><tr><td>50 rolls</td><td>$56</td></tr></table></div>
-        <div class="tray"><h3>Fried chicken wings</h3><p class="tnote">Other flavors $2 more: lemon pepper, spicy garlic, General Tso&#x27;s or hot</p><table><tr><td>40 pieces</td><td>$38</td></tr><tr><td>50 pieces</td><td>$46</td></tr><tr><td>60 pieces</td><td>$54</td></tr><tr><td>70 pieces</td><td>$62</td></tr><tr><td>80 pieces</td><td>$68</td></tr><tr><td>100 pieces</td><td>$83</td></tr></table></div>
-        <div class="tray"><h3>Crab rangoon</h3><table><tr><td>40 pieces</td><td>$26</td></tr><tr><td>50 pieces</td><td>$32</td></tr><tr><td>60 pieces</td><td>$37</td></tr><tr><td>70 pieces</td><td>$42</td></tr><tr><td>80 pieces</td><td>$47</td></tr></table></div>
-        <div class="tray"><h3>Fried rice</h3><p class="tnote">Serves 8 to 10</p><table><tr><td>Vegetable</td><td>$35</td></tr><tr><td>Roast pork or chicken</td><td>$36</td></tr><tr><td>Beef or shrimp</td><td>$39</td></tr><tr><td>House special</td><td>$40</td></tr></table></div>
-        <div class="tray"><h3>Lo mein</h3><p class="tnote">Serves 8 to 10</p><table><tr><td>Vegetable</td><td>$38</td></tr><tr><td>Roast pork or chicken</td><td>$39</td></tr><tr><td>Beef or shrimp</td><td>$40</td></tr><tr><td>House special</td><td>$42</td></tr></table></div>
-        <div class="tray"><h3>Entrees</h3><p class="tnote">Serves 8 to 10. White rice not included</p><table><tr><td>Chicken with broccoli</td><td>$44</td></tr><tr><td>Chicken with mixed vegetables</td><td>$44</td></tr><tr><td>Sesame chicken</td><td>$46</td></tr><tr><td>General Tso&#x27;s chicken</td><td>$46</td></tr><tr><td>Beef with broccoli</td><td>$46</td></tr><tr><td>Mongolian beef</td><td>$46</td></tr><tr><td>Pepper steak with onion</td><td>$46</td></tr><tr><td>Spicy garlic shrimp with vegetables</td><td>$48</td></tr><tr><td>Shrimp with broccoli</td><td>$48</td></tr></table></div>
+      <div class="slips">
+        <div class="slip"><h3>Egg rolls or spring rolls</h3><p class="tnote">Pork egg rolls or vegetable spring rolls</p><table><tr><td>10 rolls</td><td>$14</td></tr><tr><td>20 rolls</td><td>$26</td></tr><tr><td>30 rolls</td><td>$36</td></tr><tr><td>40 rolls</td><td>$46</td></tr><tr><td>50 rolls</td><td>$56</td></tr></table></div>
+        <div class="slip"><h3>Fried chicken wings</h3><p class="tnote">Other flavors $2 more: lemon pepper, spicy garlic, General Tso&#x27;s or hot</p><table><tr><td>40 pieces</td><td>$38</td></tr><tr><td>50 pieces</td><td>$46</td></tr><tr><td>60 pieces</td><td>$54</td></tr><tr><td>70 pieces</td><td>$62</td></tr><tr><td>80 pieces</td><td>$68</td></tr><tr><td>100 pieces</td><td>$83</td></tr></table></div>
+        <div class="slip"><h3>Crab rangoon</h3><table><tr><td>40 pieces</td><td>$26</td></tr><tr><td>50 pieces</td><td>$32</td></tr><tr><td>60 pieces</td><td>$37</td></tr><tr><td>70 pieces</td><td>$42</td></tr><tr><td>80 pieces</td><td>$47</td></tr></table></div>
+        <div class="slip"><h3>Fried rice</h3><p class="tnote">Serves 8 to 10</p><table><tr><td>Vegetable</td><td>$35</td></tr><tr><td>Roast pork or chicken</td><td>$36</td></tr><tr><td>Beef or shrimp</td><td>$39</td></tr><tr><td>House special</td><td>$40</td></tr></table></div>
+        <div class="slip"><h3>Lo mein</h3><p class="tnote">Serves 8 to 10</p><table><tr><td>Vegetable</td><td>$38</td></tr><tr><td>Roast pork or chicken</td><td>$39</td></tr><tr><td>Beef or shrimp</td><td>$40</td></tr><tr><td>House special</td><td>$42</td></tr></table></div>
+        <div class="slip"><h3>Entrees</h3><p class="tnote">Serves 8 to 10. White rice not included</p><table><tr><td>Chicken with broccoli</td><td>$44</td></tr><tr><td>Chicken with mixed vegetables</td><td>$44</td></tr><tr><td>Sesame chicken</td><td>$46</td></tr><tr><td>General Tso&#x27;s chicken</td><td>$46</td></tr><tr><td>Beef with broccoli</td><td>$46</td></tr><tr><td>Mongolian beef</td><td>$46</td></tr><tr><td>Pepper steak with onion</td><td>$46</td></tr><tr><td>Spicy garlic shrimp with vegetables</td><td>$48</td></tr><tr><td>Shrimp with broccoli</td><td>$48</td></tr></table></div>
       </div>
-      <div class="tray-cta">
-        <p><b>Ready to order a tray?</b> Call us with your date, time and headcount, and we'll have it hot and ready.</p>
-        <a class="btn primary" href="tel:+17705914288">Call (770) 591-4288</a>
+      <div class="call-slip">
+        <p><b>Ready to order a tray?</b> Call with your date, time and headcount, and we'll have it hot and ready.</p>
+        <a class="btn gold" href="tel:+17705914288">Call (770) 591-4288</a>
       </div>
     </div>
   </section>
 
   <section class="sec" id="reviews">
     <div class="wrap">
-      <div class="sec-head"><h2>What customers say</h2></div>
-      <div class="quotes">
+      <div class="say">
         <figure>
-          <blockquote>“Thank you for making our Christmas luncheon amazing! The party trays we ordered were so hot &amp; fresh!”</blockquote>
+          <blockquote>Thank you for making our Christmas luncheon amazing! The party trays we ordered were so hot &amp; fresh!</blockquote>
           <cite>Suzanne B., Facebook review</cite>
         </figure>
         <div class="scores">
           <div class="score"><b>4.8</b><span>from 425 ratings on Grubhub</span></div>
           <div class="score"><b>100%</b><span>of Facebook reviewers recommend us</span></div>
-          <div class="score"><b>2014</b><span>serving Marietta from the same spot on Canton Road</span></div>
+          <div class="score"><b>2014</b><span>serving Marietta from Canton Road</span></div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="sec" id="visit">
+  <section class="sec" id="visit" style="border-top:1px solid var(--rule)">
     <div class="wrap">
-      <div class="sec-head"><h2>Hours and location</h2></div>
+      <div class="sec-head"><div><p class="eyebrow">Closed Mondays</p><h2>Hours and location</h2></div></div>
       <div class="visit">
         <div>
           <table class="hours" id="hours" aria-label="Opening hours">
@@ -669,11 +649,11 @@
           <p class="small">Holiday hours may be different. Please call ahead.</p>
         </div>
         <div class="place">
-          <p class="addr">3595 Canton Rd, Suite 328<br>Marietta, GA 30066</p>
-          <p class="small">In the New Chastain Corner shopping center on Canton Road.</p>
+          <p class="addr">3595 Canton Rd<br>Suite 328</p>
+          <p class="small">Marietta, GA 30066, in the New Chastain Corner shopping center.</p>
           <div class="actions">
-            <a class="btn primary" href="https://www.google.com/maps/dir/?api=1&destination=3595+Canton+Rd+Ste+328+Marietta+GA+30066" target="_blank" rel="noopener">Get directions</a>
-            <a class="btn ghost" href="tel:+17705914288">(770) 591-4288</a>
+            <a class="btn gold" href="https://www.google.com/maps/dir/?api=1&destination=3595+Canton+Rd+Ste+328+Marietta+GA+30066" target="_blank" rel="noopener">Get directions</a>
+            <a class="btn line" href="tel:+17705914288">(770) 591-4288</a>
           </div>
           <div class="map"><iframe loading="lazy" title="Map of Mr. Wonton on Canton Road" src="https://www.google.com/maps?q=3595+Canton+Rd+Ste+328,+Marietta,+GA+30066&output=embed"></iframe></div>
         </div>
@@ -695,9 +675,9 @@
 </footer>
 
 <div class="bar" aria-label="Quick actions">
-  <a class="btn primary" href="tel:+17705914288">Call</a>
-  <a class="btn ghost" href="https://www.mrwontononline.com/" target="_blank" rel="noopener">Order</a>
-  <a class="btn ghost" href="https://www.google.com/maps/dir/?api=1&destination=3595+Canton+Rd+Ste+328+Marietta+GA+30066" target="_blank" rel="noopener">Directions</a>
+  <a class="btn gold" href="tel:+17705914288">Call</a>
+  <a class="btn line" href="https://www.mrwontononline.com/" target="_blank" rel="noopener">Order</a>
+  <a class="btn line" href="https://www.google.com/maps/dir/?api=1&destination=3595+Canton+Rd+Ste+328+Marietta+GA+30066" target="_blank" rel="noopener">Directions</a>
 </div>
 
 <script>
@@ -725,8 +705,8 @@
     document.getElementById("yr").textContent = now.getFullYear();
   } catch(e) {}
 
-  // Highlight the menu category you're looking at, and keep its chip in view (single-column layout only)
-  if (window.matchMedia("(max-width: 899px)").matches) try {
+  // Highlight the menu category on screen and keep its tab in view
+  try {
     var chips = document.querySelectorAll(".chips a"), map = {};
     chips.forEach(function(c){ map[c.getAttribute("href").slice(1)] = c; });
     var io = new IntersectionObserver(function(entries){
@@ -735,101 +715,43 @@
         chips.forEach(function(c){ c.classList.remove("on"); c.removeAttribute("aria-current"); });
         var c = map[en.target.id]; if (!c) return;
         c.classList.add("on"); c.setAttribute("aria-current","true");
-        var bar = c.parentNode; bar.scrollTo({left: c.offsetLeft - 20, behavior: "smooth"});
+        var bar = c.parentNode; if (bar.scrollWidth > bar.clientWidth) bar.scrollTo({left: c.offsetLeft - 20, behavior: "smooth"});
       });
-    }, {rootMargin: "-130px 0px -60% 0px"});
+    }, {rootMargin: "-140px 0px -60% 0px"});
     document.querySelectorAll(".group").forEach(function(g){ io.observe(g); });
   } catch(e) {}
+
+  // Briefly highlight a dish after jumping to it from "Most ordered"
+  document.querySelectorAll(".pop").forEach(function(a){
+    a.addEventListener("click", function(){
+      var li = document.querySelector(a.getAttribute("href")); if (!li) return;
+      li.classList.add("hl"); setTimeout(function(){ li.classList.remove("hl"); }, 2200);
+    });
+  });
 </script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/ScrollTrigger.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/SplitText.min.js"></script>
-<script src="https://unpkg.com/lenis@1.3.27/dist/lenis.min.js"></script>
 <script>
-  // Motion: smooth scrolling (Lenis) + entrance and scroll reveals (GSAP).
-  // If these libraries fail to load, the page simply shows everything with no animation.
+  // One opening moment: the board's lit panels switch on like a menu board at opening time.
+  // If GSAP fails to load, everything is simply shown.
   (function(){
     if (!window.gsap || !window.ScrollTrigger) return;
-    gsap.registerPlugin(ScrollTrigger, window.SplitText);
-    var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-    if (window.Lenis && !reduce) {
-      var lenis = new Lenis({ lerp: 0.12 });
-      lenis.on("scroll", ScrollTrigger.update);
-      gsap.ticker.add(function(t){ lenis.raf(t * 1000); });
-      gsap.ticker.lagSmoothing(0);
-      document.addEventListener("click", function(e){
-        var a = e.target.closest && e.target.closest('a[href^="#"]'); if (!a) return;
-        var el = document.querySelector(a.getAttribute("href")); if (!el) return;
-        e.preventDefault();
-        var y = el.getBoundingClientRect().top + window.scrollY - (parseFloat(getComputedStyle(el).scrollMarginTop) || 0);
-        var t = gsap.getProperty(el, "y"); if (t) y -= t;
-        lenis.scrollTo(Math.max(0, y), { duration: 1.1, easing: function(x){ return 1 - Math.pow(1 - x, 4); } });
-        if (history.replaceState) history.replaceState(null, "", a.getAttribute("href"));
-      });
-    }
-
-    // Briefly highlight a dish after jumping to it from "Most ordered"
-    document.querySelectorAll(".pop").forEach(function(a){
-      a.addEventListener("click", function(){
-        var li = document.querySelector(a.getAttribute("href")); if (!li) return;
-        li.classList.add("hl"); setTimeout(function(){ li.classList.remove("hl"); }, 2200);
-      });
-    });
-
-    var mm = gsap.matchMedia();
-    mm.add("(prefers-reduced-motion: no-preference)", function(){
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.matchMedia().add("(prefers-reduced-motion: no-preference)", function(){
       var tl = gsap.timeline({ defaults: { ease: "power3.out" } });
-      tl.from(".hero .status", { y: 12, opacity: 0, duration: 0.5 })
-        .from(".ticket", { y: 40, rotate: 3, opacity: 0, duration: 1, ease: "power4.out" }, 0.2)
-        .from(".ticket li", { x: 16, opacity: 0, duration: 0.5, stagger: 0.1 }, 0.7)
-        .from(".ticket .stamp", { scale: 1.8, opacity: 0, rotate: -20, duration: 0.5, ease: "back.out(2)" }, 1.0)
-        .from(".hero .lead, .hero .actions, .hero .rating", { y: 18, opacity: 0, duration: 0.7, stagger: 0.08 }, 0.45)
-        .from(".glance", { y: 24, opacity: 0, duration: 0.7 }, 0.7);
-
-      if (window.SplitText) {
-        SplitText.create(".hero h1", { type: "lines", mask: "lines", autoSplit: true,
-          onSplit: function(self){ return gsap.from(self.lines, { yPercent: 110, duration: 0.9, ease: "power4.out", stagger: 0.09, delay: 0.1 }); } });
-      }
-
-      document.querySelectorAll(".btn").forEach(function(btn){
-        var wrap = document.createElement("span"); wrap.className = "rip"; wrap.setAttribute("aria-hidden","true");
-        var label = document.createElement("span"); label.className = "t";
-        while (btn.firstChild) label.appendChild(btn.firstChild);
-        btn.appendChild(wrap); btn.appendChild(label);
-        btn.addEventListener("pointerdown", function(ev){
-          var r = btn.getBoundingClientRect(), dot = document.createElement("i");
-          dot.style.left = (ev.clientX - r.left) + "px"; dot.style.top = (ev.clientY - r.top) + "px";
-          wrap.appendChild(dot);
-          gsap.fromTo(dot, { scale: 0, opacity: 0.35 }, { scale: 1, opacity: 0, duration: 0.5, ease: "power2.out", onComplete: function(){ dot.remove(); } });
-          if (!btn.classList.contains("magnetic")) gsap.fromTo(btn, { scale: 0.95 }, { scale: 1, duration: 0.35, ease: "back.out(3)" });
-        });
-      });
-
-      if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
-        document.querySelectorAll(".btn.magnetic").forEach(function(btn){
-          btn.addEventListener("mousemove", function(ev){
-            var r = btn.getBoundingClientRect();
-            gsap.to(btn, { x: (ev.clientX - r.left - r.width/2) * 0.12, y: (ev.clientY - r.top - r.height/2) * 0.2, scale: 1.03, duration: 0.4, ease: "power3.out" });
-          });
-          btn.addEventListener("mouseleave", function(){ gsap.to(btn, { x: 0, y: 0, scale: 1, duration: 0.7, ease: "elastic.out(1, 0.45)" }); });
-        });
-      }
-
+      tl.from(".board", { opacity: 0, y: 20, duration: 0.6 })
+        .from(".board h1 > span, .board h1", { opacity: 0, y: 24, duration: 0.6, stagger: 0.08 }, 0.15)
+        .fromTo(".lit", { opacity: 0.15, filter: "brightness(.4)" },
+                        { opacity: 1, filter: "brightness(1)", duration: 0.12, repeat: 3, yoyo: true, stagger: 0.25, ease: "steps(1)" }, 0.5)
+        .set(".lit", { opacity: 1, filter: "none" })
+        .from(".lead, .actions, .rating, .info", { opacity: 0, y: 14, duration: 0.5, stagger: 0.07 }, 0.4);
       gsap.utils.toArray(".sec-head").forEach(function(h){
-        gsap.from(h, { y: 28, opacity: 0, duration: 0.8, scrollTrigger: { trigger: h, start: "top 90%", once: true } });
+        gsap.from(h, { y: 24, opacity: 0, duration: 0.7, scrollTrigger: { trigger: h, start: "top 92%", once: true } });
       });
-      gsap.from(".pop", { y: 40, opacity: 0, duration: 0.7, stagger: 0.08, scrollTrigger: { trigger: ".pops", start: "top 85%", once: true } });
-      gsap.utils.toArray(".group").forEach(function(g){
-        gsap.from(g.querySelectorAll("h3, .gnote, li"), { y: 16, opacity: 0, duration: 0.5, stagger: 0.03,
-          scrollTrigger: { trigger: g, start: "top 92%", once: true } });
-      });
-      gsap.from(".tray", { y: 30, opacity: 0, duration: 0.6, stagger: 0.07, scrollTrigger: { trigger: ".trays", start: "top 85%", once: true } });
-      gsap.from(".quotes figure, .score", { y: 24, opacity: 0, duration: 0.7, stagger: 0.1, scrollTrigger: { trigger: ".quotes", start: "top 85%", once: true } });
-      gsap.from(".visit > *", { y: 24, opacity: 0, duration: 0.7, stagger: 0.12, scrollTrigger: { trigger: ".visit", start: "top 88%", once: true } });
+      gsap.from(".pop", { y: 30, opacity: 0, duration: 0.6, stagger: 0.07, scrollTrigger: { trigger: ".pops", start: "top 88%", once: true } });
+      gsap.from(".slip", { y: 30, rotate: function(i){ return i % 2 ? 2 : -2; }, opacity: 0, duration: 0.6, stagger: 0.06,
+        scrollTrigger: { trigger: ".slips", start: "top 85%", once: true } });
     });
-
-    document.fonts && document.fonts.ready.then(function(){ ScrollTrigger.refresh(); });
     window.addEventListener("load", function(){ ScrollTrigger.refresh(); });
   })();
 </script>

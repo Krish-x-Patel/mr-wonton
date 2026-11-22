@@ -236,11 +236,10 @@ def money(p):
 
 def popular_html():
     out = []
-    for n, (gid, name, badge, blurb) in enumerate(POPULAR, 1):
+    for gid, name, badge, blurb in POPULAR:
         _, price, _ = ITEMS[(gid, name)]
         out.append(f'''        <a class="pop" href="#item-{gid}-{slug(name)}">
-          <span class="badge">{e(badge)}</span>
-          <span class="pop-num" aria-hidden="true">{n:02d}</span>
+          <span class="pop-rank">{e(badge)}</span>
           <span class="pop-name">{e(name.replace(" (each)", ""))}</span>
           <span class="pop-blurb">{e(blurb)}</span>
           <span class="pop-price">{money(price)}</span>
@@ -248,21 +247,15 @@ def popular_html():
     return "\n".join(out)
 
 def menu_html():
-    cols = [[], []]
-    total = sum(len(g[3]) + 3 for g in MENU); acc = 0
-    for g in MENU:
-        (cols[0] if acc < total / 2 else cols[1]).append(g); acc += len(g[3]) + 3
     out = []
-    for col in cols:
-        out.append('        <div class="menu-col">')
-        for gid, title, note, items in col:
-            n = f'\n            <p class="gnote">{e(note)}</p>' if note else ''
-            out.append(f'          <div class="group" id="{gid}">\n            <h3>{e(title)}</h3>{n}\n            <ul>')
-            for name, price, desc in items:
-                d = f'<span class="desc">{e(desc)}</span>' if desc else ''
-                out.append(f'              <li id="item-{gid}-{slug(name)}"><div class="top"><span class="name">{e(name)}</span><span class="dots" aria-hidden="true"></span><span class="price">{money(price)}</span></div>{d}</li>')
-            out.append('            </ul>\n          </div>')
-        out.append('        </div>')
+    for gid, title, note, items in MENU:
+        n = f'\n            <p class="gnote">{e(note)}</p>' if note else ''
+        wide = ' wide' if len(items) > 20 else ''
+        out.append(f'          <div class="group{wide}" id="{gid}">\n            <h3><span>{e(title)}</span></h3>{n}\n            <ul>')
+        for name, price, desc in items:
+            d = f'<span class="desc">{e(desc)}</span>' if desc else ''
+            out.append(f'              <li id="item-{gid}-{slug(name)}"><div class="top"><span class="name">{e(name)}</span><span class="dots" aria-hidden="true"></span><span class="price">{money(price)}</span></div>{d}</li>')
+        out.append('            </ul>\n          </div>')
     return "\n".join(out)
 
 def trays_html():
@@ -270,7 +263,7 @@ def trays_html():
     for title, note, rows in TRAYS:
         n = f'<p class="tnote">{e(note)}</p>' if note else ''
         r = "".join(f'<tr><td>{e(a)}</td><td>${b}</td></tr>' for a, b in rows)
-        out.append(f'        <div class="tray"><h3>{e(title)}</h3>{n}<table>{r}</table></div>')
+        out.append(f'        <div class="slip"><h3>{e(title)}</h3>{n}<table>{r}</table></div>')
     return "\n".join(out)
 
 chips = "\n".join(f'        <a href="#{gid}">{e(t)}</a>' for gid, t, _, _ in MENU)

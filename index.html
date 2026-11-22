@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mr. Wonton | Chinese takeout on Canton Road in Marietta, GA</title>
+<meta name="description" content="Chinese takeout in Marietta, GA since 2014: day specials from $11.55, lo mein, fried rice, General Tso's, crab rangoon and party trays. 3595 Canton Rd, Suite 328. Call (770) 591-4288.">
+<!-- Remove the next line to let search engines list the site. -->
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#fffaf2">
+<link rel="stylesheet" href="https://unpkg.com/lenis@1.3.27/dist/lenis.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,600;9..40,700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Restaurant","name":"Mr. Wonton","servesCuisine":"Chinese",
+ "telephone":"+1-770-591-4288","priceRange":"$","acceptsReservations":false,
+ "address":{"@type":"PostalAddress","streetAddress":"3595 Canton Rd, Suite 328","addressLocality":"Marietta","addressRegion":"GA","postalCode":"30066","addressCountry":"US"},
+ "openingHoursSpecification":[
+  {"@type":"OpeningHoursSpecification","dayOfWeek":["Tuesday","Wednesday","Thursday","Sunday"],"opens":"11:00","closes":"21:30"},
+  {"@type":"OpeningHoursSpecification","dayOfWeek":["Friday","Saturday"],"opens":"11:00","closes":"22:00"}]}
+</script>
+<style>
+  :root{
+    --paper:#fffaf2; --soft:#f7eedf; --ink:#1f1714; --muted:#6c5f57;
+    --red:#b3221c; --red-dark:#8f1a15; --gold:#f2b632; --jade:#2f7d5b;
+    --line:#ecdfcc; --on-red:#fff; --header:62px; --chips:58px;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --paper:#17110f; --soft:#221a16; --ink:#f6ede4; --muted:#bcaea3;
+      --red:#e2483f; --red-dark:#c93b33; --line:#3a2e28; --jade:#6cc39a;
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#17110f; --soft:#221a16; --ink:#f6ede4; --muted:#bcaea3;
+    --red:#e2483f; --red-dark:#c93b33; --line:#3a2e28; --jade:#6cc39a;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} }
+  body{background:var(--paper);color:var(--ink);font-family:"DM Sans",system-ui,sans-serif;font-size:17px;line-height:1.55}
+  a{color:inherit}
+  abbr{text-decoration:none}
+  :focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:6px}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+  .skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:var(--paper);padding:8px 14px;border-radius:8px;z-index:99}
+  .skip:focus{left:8px}
+  h1,h2,.brand,.pop-name,.ticket h2{font-family:"DM Serif Display",Georgia,serif;font-weight:400}
+  h2{font-size:clamp(32px,4.6vw,46px);letter-spacing:-.01em;line-height:1.02}
+  .sec{padding:60px 0;border-top:1px solid var(--line);scroll-margin-top:var(--header)}
+  .sec-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:8px 16px;margin-bottom:26px}
+  .sec-head p{color:var(--muted);max-width:56ch}
+  .link{color:var(--red);font-weight:700;text-decoration:none}
+  .link:hover{text-decoration:underline}
+
+  /* Header */
+  header{position:sticky;top:0;z-index:30;background:var(--paper);border-bottom:1px solid var(--line)}
+  header .wrap{display:flex;align-items:center;justify-content:space-between;height:var(--header);gap:16px}
+  .brand{font-size:26px;letter-spacing:-.01em;text-decoration:none;display:flex;align-items:center;gap:10px}
+  .seal{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:8px;background:var(--red);color:#fff;font-family:"DM Sans",sans-serif;font-weight:700;font-size:15px;transform:rotate(-6deg)}
+  .nav{display:flex;align-items:center;gap:22px;font-size:16px}
+  .nav a{text-decoration:none;color:var(--muted)}
+  .nav a:hover{color:var(--ink)}
+  .nav .btn{color:var(--on-red)}
+  @media (max-width:860px){ .nav .hide{display:none} }
+
+  /* Buttons */
+  .btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 22px;border-radius:999px;
+       font-weight:700;font-size:16px;text-decoration:none;white-space:nowrap}
+  .btn.primary{background:var(--red);color:var(--on-red)}
+  .btn.primary:hover{background:var(--red-dark)}
+  .btn.ghost{border:1.5px solid var(--ink);color:var(--ink)}
+  .btn.ghost:hover{background:var(--ink);color:var(--paper)}
+  .btn.sm{min-height:44px;padding:0 18px;font-size:15px}
+
+  /* Hero */
+  .hero{padding:40px 0 32px;overflow:hidden}
+  .hero .wrap{display:grid;gap:36px;align-items:center;grid-template-columns:1fr}
+  @media (min-width:900px){ .hero{padding:64px 0 48px} .hero .wrap{grid-template-columns:1.05fr .95fr;gap:56px} }
+  .status{display:inline-flex;align-items:center;gap:8px;font-size:15px;font-weight:700;background:var(--soft);padding:6px 12px;border-radius:999px}
+  .dot{width:9px;height:9px;border-radius:50%;background:#a39a92}
+  .dot.open{background:#2f9a55}
+  h1{font-size:clamp(44px,7vw,80px);line-height:.95;letter-spacing:-.02em;margin-top:16px;max-width:12ch}
+  h1 em{font-style:italic;color:var(--red)}
+  .hero p.lead{color:var(--muted);font-size:19px;margin-top:16px;max-width:40ch}
+  .hero .actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:24px}
+  .rating{margin-top:18px;font-size:15px;color:var(--muted)}
+  .rating .stars{color:var(--gold);letter-spacing:1px}
+
+  /* Day special ticket */
+  .ticket{position:relative;background:var(--red);color:#fff;border-radius:24px;padding:30px 28px 26px;box-shadow:0 24px 50px -24px rgba(143,26,21,.55)}
+  .ticket::before,.ticket::after{content:"";position:absolute;top:118px;width:26px;height:26px;border-radius:50%;background:var(--paper)}
+  .ticket::before{left:-13px} .ticket::after{right:-13px}
+  .ticket .eyebrow{font-size:13px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--gold)}
+  .ticket h2{font-size:clamp(34px,4vw,44px);line-height:1;margin-top:8px;color:#fff}
+  .ticket h2{padding-right:72px}
+  @media (max-width:420px){ .ticket h2{padding-right:0} }
+  .ticket .from{margin-top:10px;font-size:17px;opacity:.92}
+  .ticket .from b{font-size:30px;color:var(--gold);font-family:"DM Serif Display",serif;font-weight:400;margin-left:4px}
+  .ticket .tear{border-top:2px dashed rgba(255,255,255,.4);margin:22px -6px 18px}
+  .ticket ol{list-style:none;display:grid;gap:12px;counter-reset:s}
+  .ticket li{display:flex;gap:12px;align-items:flex-start;font-size:16.5px;line-height:1.35}
+  .ticket li::before{counter-increment:s;content:counter(s);flex:none;display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--gold);color:#1f1714;font-weight:700;font-size:14px}
+  .ticket .go{display:inline-block;margin-top:20px;color:#fff;font-weight:700;text-decoration:underline;text-underline-offset:4px}
+  .ticket .stamp{position:absolute;right:20px;top:20px;width:74px;height:74px;border-radius:50%;border:2px solid var(--gold);color:var(--gold);
+                 display:grid;place-items:center;text-align:center;font-size:11px;font-weight:700;letter-spacing:.08em;line-height:1.15;text-transform:uppercase;transform:rotate(12deg)}
+  @media (max-width:420px){ .ticket .stamp{display:none} }
+
+  /* Price ribbon */
+  .ribbon{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--soft);overflow:hidden;white-space:nowrap}
+  .ribbon .track{display:inline-flex;gap:40px;padding:14px 20px;font-weight:700;font-size:16px}
+  .ribbon .track span{display:inline-flex;gap:8px}
+  .ribbon .track b{color:var(--red)}
+  @media (prefers-reduced-motion: no-preference){ .ribbon .track{animation:slide 38s linear infinite} @keyframes slide{to{transform:translateX(-50%)}} }
+
+  /* At a glance */
+  .hero .wrap.glance-wrap{display:block}
+  .glance{display:grid;grid-template-columns:1fr;border:1px solid var(--line);border-radius:18px;overflow:hidden;margin-top:36px}
+  @media (min-width:760px){ .glance{grid-template-columns:repeat(3,1fr)} }
+  .glance a{display:flex;flex-direction:column;gap:2px;padding:16px 20px;text-decoration:none;min-height:76px;justify-content:center}
+  .glance a + a{border-top:1px solid var(--line)}
+  @media (min-width:760px){ .glance a + a{border-top:0;border-left:1px solid var(--line)} }
+  .glance a:hover{background:var(--soft)}
+  .glance .k{font-size:14px;color:var(--muted)}
+  .glance .v{font-weight:700;font-size:17px}
+  .glance .go{color:var(--red);font-size:15px;font-weight:700}
+
+  /* Popular */
+  .pops{display:grid;gap:16px;grid-template-columns:1fr}
+  @media (min-width:600px){ .pops{grid-template-columns:repeat(2,1fr)} }
+  @media (min-width:980px){ .pops{grid-template-columns:repeat(4,1fr)} }
+  .pop{position:relative;text-decoration:none;display:flex;flex-direction:column;gap:6px;background:var(--soft);border-radius:20px;padding:22px 22px 20px;min-height:220px;transition:transform .25s, background .25s}
+  .pop:hover{transform:translateY(-4px)}
+  .pop-num{font-family:"DM Serif Display",serif;font-size:64px;line-height:.9;color:var(--red);opacity:.9}
+  .badge{align-self:flex-start;background:var(--gold);color:#1f1714;font-size:12.5px;font-weight:700;padding:3px 10px;border-radius:999px;margin-bottom:10px}
+  .pop-name{font-size:25px;line-height:1.1;margin-top:6px}
+  .pop-blurb{color:var(--muted);font-size:15px;line-height:1.4}
+  .pop-price{margin-top:auto;padding-top:10px;font-weight:700;font-size:18px;font-variant-numeric:tabular-nums}
+
+  /* Menu */
+  .chips{position:sticky;top:var(--header);z-index:20;background:var(--paper);border-bottom:1px solid var(--line);
+         display:flex;gap:8px;overflow-x:auto;padding:8px 20px;scrollbar-width:none;margin:0 -20px}
+  .chips::-webkit-scrollbar{display:none}
+  .chips a{flex:none;display:inline-flex;align-items:center;min-height:42px;padding:0 16px;border-radius:999px;background:var(--soft);
+           font-size:15px;font-weight:700;text-decoration:none}
+  .chips a:hover,.chips a.on{background:var(--ink);color:var(--paper)}
+  .menu{display:grid;gap:0 64px;grid-template-columns:1fr}
+  @media (min-width:900px){ .menu{grid-template-columns:1fr 1fr} }
+  .group{padding-top:30px;scroll-margin-top:calc(var(--header) + var(--chips) - 20px)}
+  .group h3{font-family:"DM Serif Display",serif;font-weight:400;font-size:28px;color:var(--red);line-height:1.1}
+  .gnote{color:var(--muted);font-size:15px;margin-top:4px;line-height:1.45}
+  .group ul{list-style:none;margin-top:6px}
+  .group li{padding:11px 0;border-bottom:1px solid var(--line);scroll-margin-top:calc(var(--header) + var(--chips) + 12px)}
+  .group li:last-child{border-bottom:0}
+  .group li:target,.group li.hl{background:var(--soft);border-radius:10px;padding-left:10px;padding-right:10px;transition:background .6s}
+  .top{display:flex;align-items:baseline;gap:8px}
+  .name{font-weight:600}
+  .dots{flex:1;border-bottom:2px dotted var(--line);transform:translateY(-4px);min-width:12px}
+  .price{font-weight:700;font-variant-numeric:tabular-nums;white-space:nowrap}
+  .plus{color:var(--red);margin-left:1px}
+  .desc{display:block;color:var(--muted);font-size:15px;line-height:1.45;margin-top:2px}
+  .note{color:var(--muted);font-size:14.5px;margin-top:26px;max-width:80ch}
+
+  /* Party trays */
+  .trays{display:grid;gap:16px;grid-template-columns:1fr}
+  @media (min-width:640px){ .trays{grid-template-columns:repeat(2,1fr)} }
+  @media (min-width:980px){ .trays{grid-template-columns:repeat(3,1fr)} }
+  .tray{border:1px solid var(--line);border-radius:18px;padding:20px 22px}
+  .tray h3{font-family:"DM Serif Display",serif;font-weight:400;font-size:25px;line-height:1.1}
+  .tnote{color:var(--muted);font-size:14.5px;margin-top:4px;line-height:1.4}
+  .tray table{width:100%;border-collapse:collapse;margin-top:10px;font-size:16px}
+  .tray td{padding:6px 0;border-bottom:1px dotted var(--line)}
+  .tray tr:last-child td{border-bottom:0}
+  .tray td:last-child{text-align:right;font-weight:700;font-variant-numeric:tabular-nums}
+  .tray-cta{display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center;margin-top:24px;padding:20px 22px;border-radius:18px;background:var(--soft)}
+  .tray-cta p{flex:1;min-width:220px}
+
+  /* Reviews */
+  .quotes{display:grid;gap:24px;grid-template-columns:1fr}
+  @media (min-width:760px){ .quotes{grid-template-columns:1.3fr 1fr;gap:56px;align-items:center} }
+  .quotes figure{border-left:3px solid var(--gold);padding-left:18px}
+  .quotes blockquote{font-family:"DM Serif Display",serif;font-size:clamp(22px,2.6vw,28px);line-height:1.25}
+  .quotes cite{display:block;font-style:normal;color:var(--muted);font-size:15px;margin-top:10px}
+  .scores{display:grid;gap:12px}
+  .score{display:flex;align-items:baseline;gap:14px;padding:14px 18px;border-radius:16px;background:var(--soft)}
+  .score b{font-family:"DM Serif Display",serif;font-weight:400;font-size:38px;line-height:1;color:var(--red);min-width:76px}
+  .score span{color:var(--muted);font-size:15.5px}
+
+  /* Visit */
+  .visit{display:grid;gap:32px;grid-template-columns:1fr;align-items:start}
+  @media (min-width:900px){ .visit{grid-template-columns:1fr 1fr;gap:56px} }
+  .hours{width:100%;border-collapse:collapse}
+  .hours td{padding:10px 0;border-bottom:1px solid var(--line)}
+  .hours td:last-child{text-align:right}
+  .hours tr.today td{font-weight:700;color:var(--red)}
+  .hours tr.closed td:last-child{color:var(--muted)}
+  .small{font-size:15px;color:var(--muted);margin-top:12px}
+  .place p.addr{font-size:20px}
+  .place .actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+  .map{border-radius:18px;overflow:hidden;border:1px solid var(--line);aspect-ratio:4/3;margin-top:22px;background:var(--soft)}
+  .map iframe{width:100%;height:100%;border:0}
+
+  /* Footer */
+  footer{border-top:1px solid var(--line);padding:32px 0 40px;font-size:15px;color:var(--muted)}
+  footer .wrap{display:flex;flex-wrap:wrap;gap:14px 28px;justify-content:space-between;align-items:center}
+  footer nav{display:flex;flex-wrap:wrap;gap:4px 18px}
+  footer a{text-decoration:none;display:inline-flex;align-items:center;min-height:32px}
+  footer a:hover{color:var(--ink);text-decoration:underline}
+
+  /* Motion */
+  @media (prefers-reduced-motion: no-preference){
+    .dot.open{animation:pulse 2.4s ease-out infinite}
+    @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(47,154,85,.45)}70%{box-shadow:0 0 0 8px rgba(47,154,85,0)}100%{box-shadow:0 0 0 0 rgba(47,154,85,0)}}
+    .btn{transition:transform .2s ease, background .2s}
+    .btn:not(.magnetic):hover{transform:translateY(-2px)}
+    .btn:not(.magnetic):active{transform:translateY(0) scale(.97)}
+    .btn.magnetic{transition:background .2s}
+  }
+  @media (prefers-reduced-motion: reduce){ .pop{transition:none} .pop:hover{transform:none} }
+  .btn{position:relative;isolation:isolate}
+  .btn .rip{position:absolute;inset:0;border-radius:inherit;overflow:hidden;pointer-events:none;z-index:0}
+  .btn .rip i{position:absolute;width:500px;height:500px;margin:-250px 0 0 -250px;border-radius:50%;background:#fff;opacity:0;pointer-events:none}
+  .btn.ghost .rip i{background:currentColor}
+  .btn > .t{position:relative;z-index:1}
+  .btn.pulse::before{content:"";position:absolute;inset:0;border-radius:inherit;background:var(--red);z-index:-1;opacity:0}
+  @media (hover:hover) and (prefers-reduced-motion: no-preference){
+    .btn.pulse:hover::before{animation:btnpulse 1s linear infinite}
+    @keyframes btnpulse{0%{transform:scale(1);opacity:.8}50%{transform:scale(1.12);opacity:0}100%{transform:scale(1);opacity:.8}}
+  }
+
+  /* Phone action bar */
+  .bar{display:none}
+  @media (max-width:700px){
+    .bar{display:grid;grid-template-columns:1.1fr 1fr 1fr;gap:8px;position:fixed;left:0;right:0;bottom:0;z-index:40;
+         padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:var(--paper);border-top:1px solid var(--line)}
+    .bar .btn{padding:0 6px;font-size:15px}
+    body{padding-bottom:calc(72px + env(safe-area-inset-bottom))}
+  }
+</style>
+</head>
+<body>
+<a class="skip" href="#menu">Skip to menu</a>
+
+<header>
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Mr. Wonton, back to top"><span class="seal" aria-hidden="true">MW</span>Mr. Wonton</a>
+    <nav class="nav" aria-label="Main">
+      <a class="hide" href="#menu">Menu</a>
+      <a class="hide" href="#trays">Party trays</a>
+      <a class="hide" href="#visit">Hours and location</a>
+      <a class="btn primary sm" href="tel:+17705914288">Call to order</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero" aria-label="Welcome">
+    <div class="wrap">
+      <div>
+        <span class="status"><span class="dot" id="dot"></span><span id="status">Open Tuesday to Sunday</span></span>
+        <h1>Chinese takeout, <em>done right</em> on Canton Road.</h1>
+        <p class="lead">Generous plates, fair prices and your order ready fast. Call ahead or order online for pickup.</p>
+        <div class="actions">
+          <a class="btn primary pulse magnetic" href="tel:+17705914288">Call (770) 591-4288</a>
+          <a class="btn ghost magnetic" href="https://www.mrwontononline.com/" target="_blank" rel="noopener">Order online</a>
+        </div>
+        <p class="rating"><span class="stars" aria-hidden="true">★★★★★</span> 4.8 from 425 Grubhub ratings</p>
+      </div>
+      <aside class="ticket" aria-label="Day special">
+        <span class="stamp" aria-hidden="true">Served<br>all<br>day</span>
+        <span class="eyebrow">Day special for one</span>
+        <h2>A full meal, one low price.</h2>
+        <p class="from">Starting at <b>$11.55</b></p>
+        <div class="tear" aria-hidden="true"></div>
+        <ol>
+          <li>Pick from 30 favorites, like sesame chicken, beef with broccoli or General Tso's.</li>
+          <li>It comes with vegetable fried rice.</li>
+          <li>Plus an egg roll, or soup for 50¢ more.</li>
+        </ol>
+        <a class="go" href="#specials">See all 30 day specials</a>
+      </aside>
+    </div>
+    <div class="wrap glance-wrap">
+      <div class="glance" aria-label="At a glance">
+        <a href="#visit"><span class="k">Today</span><span class="v" id="today">See our hours</span><span class="go">All hours</span></a>
+        <a href="https://www.google.com/maps/dir/?api=1&destination=3595+Canton+Rd+Ste+328+Marietta+GA+30066" target="_blank" rel="noopener"><span class="k">Find us</span><span class="v">3595 Canton Rd, Suite 328, Marietta</span><span class="go">Get directions</span></a>
+        <a href="tel:+17705914288"><span class="k">Call to order</span><span class="v">(770) 591-4288</span><span class="go">Tap to call</span></a>
+      </div>
+    </div>
+  </section>
+
+  <div class="ribbon" aria-hidden="true">
+    <div class="track">
+      <span>Egg roll <b>$1.59</b></span><span>Wonton soup <b>$2.75</b></span><span>Crab rangoon (5) <b>$4.25</b></span><span>Vegetable lo mein <b>$6.95</b></span><span>Chicken fried rice <b>$6.95</b></span><span>Day special <b>$11.55</b></span><span>Party trays from <b>$14</b></span>
+      <span>Egg roll <b>$1.59</b></span><span>Wonton soup <b>$2.75</b></span><span>Crab rangoon (5) <b>$4.25</b></span><span>Vegetable lo mein <b>$6.95</b></span><span>Chicken fried rice <b>$6.95</b></span><span>Day special <b>$11.55</b></span><span>Party trays from <b>$14</b></span>
+    </div>
+  </div>
+
+  <section class="sec" id="popular" style="border-top:0">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Most ordered</h2>
+        <a class="link" href="#menu">See the full menu</a>
+      </div>
+      <div class="pops">
+        <a class="pop" href="#item-appetizers-crab-rangoon-5">
+          <span class="badge">#1 most ordered</span>
+          <span class="pop-num" aria-hidden="true">01</span>
+          <span class="pop-name">Crab rangoon (5)</span>
+          <span class="pop-blurb">Crispy wontons with a cream cheese filling</span>
+          <span class="pop-price">$4.25</span>
+        </a>
+        <a class="pop" href="#item-specials-sesame-chicken">
+          <span class="badge">#2 most ordered</span>
+          <span class="pop-num" aria-hidden="true">02</span>
+          <span class="pop-name">Sesame chicken</span>
+          <span class="pop-blurb">Day special with vegetable fried rice and an egg roll</span>
+          <span class="pop-price">$11.95</span>
+        </a>
+        <a class="pop" href="#item-appetizers-vegetable-spring-roll-each">
+          <span class="badge">#3 most ordered</span>
+          <span class="pop-num" aria-hidden="true">03</span>
+          <span class="pop-name">Vegetable spring roll</span>
+          <span class="pop-blurb">Crispy, golden and only $1.59</span>
+          <span class="pop-price">$1.59</span>
+        </a>
+        <a class="pop" href="#item-specials-sweet-and-sour-chicken">
+          <span class="badge">#4 most ordered</span>
+          <span class="pop-num" aria-hidden="true">04</span>
+          <span class="pop-name">Sweet and sour chicken</span>
+          <span class="pop-blurb">Day special with vegetable fried rice and an egg roll</span>
+          <span class="pop-price">$11.55</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="menu">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Menu</h2>
+        <p>Prices from our own online ordering page. A <b class="plus">+</b> means the dish comes in more than one size; the smallest size is shown.</p>
+      </div>
+      <nav class="chips" aria-label="Menu categories">
+        <a href="#specials">Day specials for one</a>
+        <a href="#appetizers">Appetizers</a>
+        <a href="#soup">Soup</a>
+        <a href="#lo-mein">Lo mein</a>
+        <a href="#mai-fun">Mai fun</a>
+        <a href="#fried-rice">Fried rice</a>
+        <a href="#egg-foo-young">Egg foo young</a>
+        <a href="#vegetable">Vegetable and tofu</a>
+        <a href="#pork-beef">Pork and beef</a>
+        <a href="#poultry">Chicken</a>
+        <a href="#seafood">Seafood</a>
+        <a href="#chefs-special">Chef&#x27;s specials</a>
+        <a href="#diet">Steamed (diet menu)</a>
+        <a href="#sides">Sides</a>
+      </nav>
+      <div class="menu">
+        <div class="menu-col">
+          <div class="group" id="specials">
+            <h3>Day specials for one</h3>
+            <p class="gnote">Served all day with vegetable fried rice and an egg roll. Swap the egg roll for egg drop, hot and sour or wonton soup for 50¢. Chicken or beef fried rice is $2 more; shrimp or house special fried rice, or lo mein, is $2 more.</p>
+            <ul>
+              <li id="item-specials-chicken-with-broccoli"><div class="top"><span class="name">Chicken with broccoli</span><span class="dots" aria-hidden="true"></span><span class="price">$11.55</span></div></li>
+              <li id="item-specials-beef-with-broccoli"><div class="top"><span class="name">Beef with broccoli</span><span class="dots" aria-hidden="true"></span><span class="price">$11.55</span></div></li>
+              <li id="item-specials-chicken-with-garlic-sauce"><div class="top"><span class="name">Chicken with garlic sauce</span><span class="dots" aria-hidden="true"></span><span class="price">$11.55</span></div></li>
+              <li id="item-specials-beef-with-garlic-sauce"><div class="top"><span class="name">Beef with garlic sauce</span><span class="dots" aria-hidden="true"></span><span class="price">$11.55</span></div></li>
+              <li id="item-specials-kung-pao-chicken-with-peanuts"><div class="top"><span class="name">Kung pao chicken with peanuts</span><span class="dots" aria-hidden="true"></span><span class="price">$11.55</span></div></li>
+              <li id="item-specials-general-tso-s-chicken"><div class="top"><span class="name">General Tso&#x27;s chicken</span><span class="dots" aria-hidden="true"></span><span class="price">$11.95</span></div></li>
+              <li id="item-specials-black-pepper-chicken"><div class="top"><span class="name">Black pepper chicken</span><span class="dots" aria-hidden="true"></span><span class="price">$11.95</span></div></li>
+              <li id="item-specials-sesame-chicken"><div class="top"><span class="name">Sesame chicken</span><span class="dots" aria-hidden="true"></span><span class="price">$11.95</span></div></li>
+              <li id="item-specials-sweet-and-sour-chicken"><div class="top"><span class="name">Sweet and sour chicken</span><span class="dots" aria-hidden="true"></span><span class="price">$11.55</span></div></li>
+              <li id="item-specials-sweet-and-sour-pork"><div class="top"><span class="name">Sweet and sour pork</span><span class="dots" aria-hidden="true"></span><span class="price">$11.55</span></div></li>
+              <li id="item-specials-moo-goo-gai-pan"><div class="top"><span class="name">Moo goo gai pan</span><span class="dots" aria-hidden="true"></span><span class="price">$11.55</span></div></li>
+              <li id="item-specials-pork-egg-foo-young"><div class="top"><span class="name">Pork egg foo young</span><span class="dots" aria-hidden="true"></span><span class="price">$11.55</span></div></li>
+              <li id="item-specials-chicken-egg-foo-young"><div class="top"><span class="name">Chicken egg foo young</span><span class="dots" aria-hidden="true"></span><span class="price">$11.55</span></div></li>
+              <li id="item-specials-boneless-spare-ribs"><div class="top"><span class="name">Boneless spare ribs</span><span class="dots" aria-hidden="true"></span><span class="price">$11.95</span></div></li>
+              <li id="item-specials-fried-chicken-wings-8"><div class="top"><span class="name">Fried chicken wings (8)</span><span class="dots" aria-hidden="true"></span><span class="price">$11.55</span></div></li>
+              <li id="item-specials-spicy-garlic-wings-8"><div class="top"><span class="name">Spicy garlic wings (8)</span><span class="dots" aria-hidden="true"></span><span class="price">$11.95</span></div></li>
+              <li id="item-specials-hot-wings-8"><div class="top"><span class="name">Hot wings (8)</span><span class="dots" aria-hidden="true"></span><span class="price">$11.95</span></div></li>
+              <li id="item-specials-general-tso-s-wings-8"><div class="top"><span class="name">General Tso&#x27;s wings (8)</span><span class="dots" aria-hidden="true"></span><span class="price">$11.95</span></div></li>
+              <li id="item-specials-lemon-wings-8"><div class="top"><span class="name">Lemon wings (8)</span><span class="dots" aria-hidden="true"></span><span class="price">$11.95</span></div></li>
+              <li id="item-specials-pepper-steak-with-onion"><div class="top"><span class="name">Pepper steak with onion</span><span class="dots" aria-hidden="true"></span><span class="price">$11.55</span></div></li>
+              <li id="item-specials-chicken-with-mixed-vegetables"><div class="top"><span class="name">Chicken with mixed vegetables</span><span class="dots" aria-hidden="true"></span><span class="price">$11.55</span></div></li>
+              <li id="item-specials-chicken-with-cashew-nuts"><div class="top"><span class="name">Chicken with cashew nuts</span><span class="dots" aria-hidden="true"></span><span class="price">$11.55</span></div></li>
+              <li id="item-specials-pork-lo-mein"><div class="top"><span class="name">Pork lo mein</span><span class="dots" aria-hidden="true"></span><span class="price">$11.55</span></div></li>
+              <li id="item-specials-chicken-lo-mein"><div class="top"><span class="name">Chicken lo mein</span><span class="dots" aria-hidden="true"></span><span class="price">$11.55</span></div></li>
+              <li id="item-specials-beef-with-mixed-vegetables"><div class="top"><span class="name">Beef with mixed vegetables</span><span class="dots" aria-hidden="true"></span><span class="price">$11.55</span></div></li>
+              <li id="item-specials-mongolian-beef"><div class="top"><span class="name">Mongolian beef</span><span class="dots" aria-hidden="true"></span><span class="price">$11.55</span></div></li>
+              <li id="item-specials-shrimp-with-lobster-sauce"><div class="top"><span class="name">Shrimp with lobster sauce</span><span class="dots" aria-hidden="true"></span><span class="price">$11.95</span></div></li>
+              <li id="item-specials-spicy-garlic-shrimp"><div class="top"><span class="name">Spicy garlic shrimp</span><span class="dots" aria-hidden="true"></span><span class="price">$11.95</span></div></li>
+              <li id="item-specials-shrimp-with-broccoli"><div class="top"><span class="name">Shrimp with broccoli</span><span class="dots" aria-hidden="true"></span><span class="price">$11.95</span></div></li>
+              <li id="item-specials-szechuan-shrimp"><div class="top"><span class="name">Szechuan shrimp</span><span class="dots" aria-hidden="true"></span><span class="price">$11.95</span></div></li>
+            </ul>
+          </div>
+          <div class="group" id="appetizers">
+            <h3>Appetizers</h3>
+            <ul>
+              <li id="item-appetizers-pork-egg-roll-each"><div class="top"><span class="name">Pork egg roll (each)</span><span class="dots" aria-hidden="true"></span><span class="price">$1.59</span></div></li>
+              <li id="item-appetizers-shrimp-roll-each"><div class="top"><span class="name">Shrimp roll (each)</span><span class="dots" aria-hidden="true"></span><span class="price">$1.59</span></div></li>
+              <li id="item-appetizers-vegetable-spring-roll-each"><div class="top"><span class="name">Vegetable spring roll (each)</span><span class="dots" aria-hidden="true"></span><span class="price">$1.59</span></div></li>
+              <li id="item-appetizers-crab-rangoon-5"><div class="top"><span class="name">Crab rangoon (5)</span><span class="dots" aria-hidden="true"></span><span class="price">$4.25</span></div><span class="desc">Cream cheese filling</span></li>
+              <li id="item-appetizers-crab-rangoon-10"><div class="top"><span class="name">Crab rangoon (10)</span><span class="dots" aria-hidden="true"></span><span class="price">$6.95</span></div><span class="desc">Cream cheese filling</span></li>
+              <li id="item-appetizers-fried-wontons-10"><div class="top"><span class="name">Fried wontons (10)</span><span class="dots" aria-hidden="true"></span><span class="price">$6.25</span></div><span class="desc">Meat filling</span></li>
+              <li id="item-appetizers-steamed-pot-stickers"><div class="top"><span class="name">Steamed pot stickers</span><span class="dots" aria-hidden="true"></span><span class="price">$6.95</span></div></li>
+              <li id="item-appetizers-fried-pot-stickers"><div class="top"><span class="name">Fried pot stickers</span><span class="dots" aria-hidden="true"></span><span class="price">$6.95</span></div></li>
+              <li id="item-appetizers-teriyaki-chicken-on-a-stick-4"><div class="top"><span class="name">Teriyaki chicken on a stick (4)</span><span class="dots" aria-hidden="true"></span><span class="price">$6.95</span></div></li>
+              <li id="item-appetizers-bone-in-barbecue-ribs-5"><div class="top"><span class="name">Bone-in barbecue ribs (5)</span><span class="dots" aria-hidden="true"></span><span class="price">$10.95</span></div></li>
+              <li id="item-appetizers-bone-in-barbecue-ribs-10"><div class="top"><span class="name">Bone-in barbecue ribs (10)</span><span class="dots" aria-hidden="true"></span><span class="price">$20.50</span></div></li>
+              <li id="item-appetizers-boneless-spare-ribs-small"><div class="top"><span class="name">Boneless spare ribs, small</span><span class="dots" aria-hidden="true"></span><span class="price">$8.75</span></div></li>
+              <li id="item-appetizers-boneless-spare-ribs-large"><div class="top"><span class="name">Boneless spare ribs, large</span><span class="dots" aria-hidden="true"></span><span class="price">$16.25</span></div></li>
+              <li id="item-appetizers-fried-scallops-12"><div class="top"><span class="name">Fried scallops (12)</span><span class="dots" aria-hidden="true"></span><span class="price">$6.50</span></div></li>
+              <li id="item-appetizers-fried-shrimp-12"><div class="top"><span class="name">Fried shrimp (12)</span><span class="dots" aria-hidden="true"></span><span class="price">$6.50</span></div></li>
+              <li id="item-appetizers-shrimp-toast-6"><div class="top"><span class="name">Shrimp toast (6)</span><span class="dots" aria-hidden="true"></span><span class="price">$6.95</span></div></li>
+              <li id="item-appetizers-fried-chicken-wings-8"><div class="top"><span class="name">Fried chicken wings (8)</span><span class="dots" aria-hidden="true"></span><span class="price">$8.25</span></div></li>
+              <li id="item-appetizers-spicy-garlic-chicken-wings-8"><div class="top"><span class="name">Spicy garlic chicken wings (8)</span><span class="dots" aria-hidden="true"></span><span class="price">$8.75</span></div></li>
+              <li id="item-appetizers-general-tso-s-chicken-wings-8"><div class="top"><span class="name">General Tso&#x27;s chicken wings (8)</span><span class="dots" aria-hidden="true"></span><span class="price">$8.75</span></div></li>
+              <li id="item-appetizers-hot-wings-8"><div class="top"><span class="name">Hot wings (8)</span><span class="dots" aria-hidden="true"></span><span class="price">$8.75</span></div></li>
+              <li id="item-appetizers-lemon-pepper-wings-8"><div class="top"><span class="name">Lemon pepper wings (8)</span><span class="dots" aria-hidden="true"></span><span class="price">$8.75</span></div></li>
+              <li id="item-appetizers-sesame-balls-6"><div class="top"><span class="name">Sesame balls (6)</span><span class="dots" aria-hidden="true"></span><span class="price">$4.95</span></div></li>
+              <li id="item-appetizers-french-fries-large"><div class="top"><span class="name">French fries, large</span><span class="dots" aria-hidden="true"></span><span class="price">$4.25</span></div></li>
+            </ul>
+          </div>
+          <div class="group" id="soup">
+            <h3>Soup</h3>
+            <p class="gnote">Served with fried noodle chips.</p>
+            <ul>
+              <li id="item-soup-wonton-soup"><div class="top"><span class="name">Wonton soup</span><span class="dots" aria-hidden="true"></span><span class="price">$2.75<abbr class="plus" title="More sizes available; smallest size shown">+</abbr></span></div></li>
+              <li id="item-soup-egg-drop-soup"><div class="top"><span class="name">Egg drop soup</span><span class="dots" aria-hidden="true"></span><span class="price">$2.75<abbr class="plus" title="More sizes available; smallest size shown">+</abbr></span></div></li>
+              <li id="item-soup-chicken-noodle-soup"><div class="top"><span class="name">Chicken noodle soup</span><span class="dots" aria-hidden="true"></span><span class="price">$2.75<abbr class="plus" title="More sizes available; smallest size shown">+</abbr></span></div></li>
+              <li id="item-soup-chicken-rice-soup"><div class="top"><span class="name">Chicken rice soup</span><span class="dots" aria-hidden="true"></span><span class="price">$2.75<abbr class="plus" title="More sizes available; smallest size shown">+</abbr></span></div></li>
+              <li id="item-soup-wonton-egg-drop-mix"><div class="top"><span class="name">Wonton egg drop mix</span><span class="dots" aria-hidden="true"></span><span class="price">$2.95<abbr class="plus" title="More sizes available; smallest size shown">+</abbr></span></div></li>
+              <li id="item-soup-hot-and-sour-soup"><div class="top"><span class="name">Hot and sour soup</span><span class="dots" aria-hidden="true"></span><span class="price">$2.95<abbr class="plus" title="More sizes available; smallest size shown">+</abbr></span></div></li>
+              <li id="item-soup-tofu-vegetable-soup"><div class="top"><span class="name">Tofu vegetable soup</span><span class="dots" aria-hidden="true"></span><span class="price">$5.50</span></div></li>
+              <li id="item-soup-chicken-with-creamy-corn-soup"><div class="top"><span class="name">Chicken with creamy corn soup</span><span class="dots" aria-hidden="true"></span><span class="price">$6.50</span></div></li>
+              <li id="item-soup-house-special-soup"><div class="top"><span class="name">House special soup</span><span class="dots" aria-hidden="true"></span><span class="price">$6.95</span></div><span class="desc">Shrimp, chicken and pork with vegetables</span></li>
+              <li id="item-soup-seafood-vegetable-soup"><div class="top"><span class="name">Seafood vegetable soup</span><span class="dots" aria-hidden="true"></span><span class="price">$7.50</span></div><span class="desc">Shrimp, scallops, crabmeat and crawfish with vegetables</span></li>
+            </ul>
+          </div>
+          <div class="group" id="lo-mein">
+            <h3>Lo mein</h3>
+            <p class="gnote">Soft Chinese noodles.</p>
+            <ul>
+              <li id="item-lo-mein-vegetable-lo-mein"><div class="top"><span class="name">Vegetable lo mein</span><span class="dots" aria-hidden="true"></span><span class="price">$6.95<abbr class="plus" title="More sizes available; smallest size shown">+</abbr></span></div></li>
+              <li id="item-lo-mein-roast-pork-lo-mein"><div class="top"><span class="name">Roast pork lo mein</span><span class="dots" aria-hidden="true"></span><span class="price">$7.25<abbr class="plus" title="More sizes available; smallest size shown">+</abbr></span></div></li>
+              <li id="item-lo-mein-chicken-lo-mein"><div class="top"><span class="name">Chicken lo mein</span><span class="dots" aria-hidden="true"></span><span class="price">$7.25<abbr class="plus" title="More sizes available; smallest size shown">+</abbr></span></div></li>
+              <li id="item-lo-mein-beef-lo-mein"><div class="top"><span class="name">Beef lo mein</span><span class="dots" aria-hidden="true"></span><span class="price">$7.75<abbr class="plus" title="More sizes available; smallest size shown">+</abbr></span></div></li>
+              <li id="item-lo-mein-shrimp-lo-mein"><div class="top"><span class="name">Shrimp lo mein</span><span class="dots" aria-hidden="true"></span><span class="price">$7.75<abbr class="plus" title="More sizes available; smallest size shown">+</abbr></span></div></li>
+              <li id="item-lo-mein-house-special-lo-mein"><div class="top"><span class="name">House special lo mein</span><span class="dots" aria-hidden="true"></span><span class="price">$7.95<abbr class="plus" title="More sizes available; smallest size shown">+</abbr></span></div><span class="desc">Chicken, pork and shrimp</span></li>
+              <li id="item-lo-mein-seafood-lo-mein"><div class="top"><span class="name">Seafood lo mein</span><span class="dots" aria-hidden="true"></span><span class="price">$8.25<abbr class="plus" title="More sizes available; smallest size shown">+</abbr></span></div></li>
+            </ul>
+          </div>
+          <div class="group" id="mai-fun">
+            <h3>Mai fun</h3>
+            <p class="gnote">Thin rice noodles. Large size.</p>
+            <ul>
+              <li id="item-mai-fun-fresh-vegetable-mai-fun"><div class="top"><span class="name">Fresh vegetable mai fun</span><span class="dots" aria-hidden="true"></span><span class="price">$11.25</span></div></li>
+              <li id="item-mai-fun-roast-pork-mai-fun"><div class="top"><span class="name">Roast pork mai fun</span><span class="dots" aria-hidden="true"></span><span class="price">$11.55</span></div></li>
+              <li id="item-mai-fun-chicken-mai-fun"><div class="top"><span class="name">Chicken mai fun</span><span class="dots" aria-hidden="true"></span><span class="price">$11.55</span></div></li>
+              <li id="item-mai-fun-beef-mai-fun"><div class="top"><span class="name">Beef mai fun</span><span class="dots" aria-hidden="true"></span><span class="price">$11.95</span></div></li>
+              <li id="item-mai-fun-shrimp-mai-fun"><div class="top"><span class="name">Shrimp mai fun</span><span class="dots" aria-hidden="true"></span><span class="price">$11.95</span></div></li>
+              <li id="item-mai-fun-house-mai-fun"><div class="top"><span class="name">House mai fun</span><span class="dots" aria-hidden="true"></span><span class="price">$12.25</span></div></li>
+              <li id="item-mai-fun-singapore-mai-fun"><div class="top"><span class="name">Singapore mai fun</span><span class="dots" aria-hidden="true"></span><span class="price">$12.50</span></div><span class="desc">Chicken, pork and shrimp sauteed with curry powder</span></li>
+              <li id="item-mai-fun-seafood-mai-fun"><div class="top"><span class="name">Seafood mai fun</span><span class="dots" aria-hidden="true"></span><span class="price">$12.95</span></div><span class="desc">Shrimp, crabmeat and crawfish</span></li>
+            </ul>
+          </div>
+          <div class="group" id="fried-rice">
+            <h3>Fried rice</h3>
+            <ul>
+              <li id="item-fried-rice-vegetable-fried-rice"><div class="top"><span class="name">Vegetable fried rice</span><span class="dots" aria-hidden="true"></span><span class="price">$6.75<abbr class="plus" title="More sizes available; smallest size shown">+</abbr></span></div></li>
+              <li id="item-fried-rice-roast-pork-fried-rice"><div class="top"><span class="name">Roast pork fried rice</span><span class="dots" aria-hidden="true"></span><span class="price">$6.95<abbr class="plus" title="More sizes available; smallest size shown">+</abbr></span></div></li>
+              <li id="item-fried-rice-chicken-fried-rice"><div class="top"><span class="name">Chicken fried rice</span><span class="dots" aria-hidden="true"></span><span class="price">$6.95<abbr class="plus" title="More sizes available; smallest size shown">+</abbr></span></div></li>
+              <li id="item-fried-rice-beef-fried-rice"><div class="top"><span class="name">Beef fried rice</span><span class="dots" aria-hidden="true"></span><span class="price">$7.25<abbr class="plus" title="More sizes available; smallest size shown">+</abbr></span></div></li>
+              <li id="item-fried-rice-shrimp-fried-rice"><div class="top"><span class="name">Shrimp fried rice</span><span class="dots" aria-hidden="true"></span><span class="price">$7.25<abbr class="plus" title="More sizes available; smallest size shown">+</abbr></span></div></li>
+              <li id="item-fried-rice-house-special-fried-rice"><div class="top"><span class="name">House special fried rice</span><span class="dots" aria-hidden="true"></span><span class="price">$7.50<abbr class="plus" title="More sizes available; smallest size shown">+</abbr></span></div><span class="desc">Chicken, pork and shrimp</span></li>
+              <li id="item-fried-rice-seafood-fried-rice"><div class="top"><span class="name">Seafood fried rice</span><span class="dots" aria-hidden="true"></span><span class="price">$7.75<abbr class="plus" title="More sizes available; smallest size shown">+</abbr></span></div></li>
+            </ul>
+          </div>
+          <div class="group" id="egg-foo-young">
+            <h3>Egg foo young</h3>
+            <p class="gnote">Large size, with white rice.</p>
+            <ul>
+              <li id="item-egg-foo-young-vegetable-egg-foo-young"><div class="top"><span class="name">Vegetable egg foo young</span><span class="dots" aria-hidden="true"></span><span class="price">$11.25</span></div></li>
+              <li id="item-egg-foo-young-roast-pork-egg-foo-young"><div class="top"><span class="name">Roast pork egg foo young</span><span class="dots" aria-hidden="true"></span><span class="price">$11.75</span></div></li>
+              <li id="item-egg-foo-young-chicken-egg-foo-young"><div class="top"><span class="name">Chicken egg foo young</span><span class="dots" aria-hidden="true"></span><span class="price">$11.75</span></div></li>
+              <li id="item-egg-foo-young-beef-egg-foo-young"><div class="top"><span class="name">Beef egg foo young</span><span class="dots" aria-hidden="true"></span><span class="price">$11.95</span></div></li>
+              <li id="item-egg-foo-young-shrimp-egg-foo-young"><div class="top"><span class="name">Shrimp egg foo young</span><span class="dots" aria-hidden="true"></span><span class="price">$11.95</span></div></li>
+              <li id="item-egg-foo-young-house-egg-foo-young"><div class="top"><span class="name">House egg foo young</span><span class="dots" aria-hidden="true"></span><span class="price">$12.25</span></div></li>
+            </ul>
+          </div>
+        </div>
+        <div class="menu-col">
+          <div class="group" id="vegetable">
+            <h3>Vegetable and tofu</h3>
+            <p class="gnote">Large size, with white rice.</p>
+            <ul>
+              <li id="item-vegetable-vegetable-delight"><div class="top"><span class="name">Vegetable delight</span><span class="dots" aria-hidden="true"></span><span class="price">$11.75</span></div></li>
+              <li id="item-vegetable-mixed-vegetables-with-garlic-sauce"><div class="top"><span class="name">Mixed vegetables with garlic sauce</span><span class="dots" aria-hidden="true"></span><span class="price">$11.75</span></div></li>
+              <li id="item-vegetable-sauteed-broccoli"><div class="top"><span class="name">Sauteed broccoli</span><span class="dots" aria-hidden="true"></span><span class="price">$11.75</span></div></li>
+              <li id="item-vegetable-vegetables-with-fried-tofu"><div class="top"><span class="name">Vegetables with fried tofu</span><span class="dots" aria-hidden="true"></span><span class="price">$12.25</span></div></li>
+              <li id="item-vegetable-spicy-garlic-tofu-with-vegetables"><div class="top"><span class="name">Spicy garlic tofu with vegetables</span><span class="dots" aria-hidden="true"></span><span class="price">$12.25</span></div></li>
+              <li id="item-vegetable-general-tso-s-tofu-with-vegetables"><div class="top"><span class="name">General Tso&#x27;s tofu with vegetables</span><span class="dots" aria-hidden="true"></span><span class="price">$12.25</span></div><span class="desc">Fried tofu and mixed vegetables in a sweet and spicy sauce</span></li>
+            </ul>
+          </div>
+          <div class="group" id="pork-beef">
+            <h3>Pork and beef</h3>
+            <p class="gnote">Large size, with white rice.</p>
+            <ul>
+              <li id="item-pork-beef-roast-pork-with-broccoli"><div class="top"><span class="name">Roast pork with broccoli</span><span class="dots" aria-hidden="true"></span><span class="price">$12.95</span></div></li>
+              <li id="item-pork-beef-sweet-and-sour-pork"><div class="top"><span class="name">Sweet and sour pork</span><span class="dots" aria-hidden="true"></span><span class="price">$12.95</span></div></li>
+              <li id="item-pork-beef-shredded-pork-with-black-bean-sauce"><div class="top"><span class="name">Shredded pork with black bean sauce</span><span class="dots" aria-hidden="true"></span><span class="price">$12.95</span></div></li>
+              <li id="item-pork-beef-sha-cha-roast-pork"><div class="top"><span class="name">Sha cha roast pork</span><span class="dots" aria-hidden="true"></span><span class="price">$12.95</span></div></li>
+              <li id="item-pork-beef-twice-cooked-roast-pork"><div class="top"><span class="name">Twice-cooked roast pork</span><span class="dots" aria-hidden="true"></span><span class="price">$12.95</span></div></li>
+              <li id="item-pork-beef-moo-shu-pork-5-pancakes"><div class="top"><span class="name">Moo shu pork (5 pancakes)</span><span class="dots" aria-hidden="true"></span><span class="price">$12.95</span></div><span class="desc">Pork sauteed with cabbage, mushroom, carrots, bamboo shoots and egg, with plum sauce</span></li>
+              <li id="item-pork-beef-beef-with-broccoli"><div class="top"><span class="name">Beef with broccoli</span><span class="dots" aria-hidden="true"></span><span class="price">$13.75</span></div></li>
+              <li id="item-pork-beef-pepper-steak-with-onion"><div class="top"><span class="name">Pepper steak with onion</span><span class="dots" aria-hidden="true"></span><span class="price">$13.75</span></div></li>
+              <li id="item-pork-beef-beef-with-mixed-vegetables"><div class="top"><span class="name">Beef with mixed vegetables</span><span class="dots" aria-hidden="true"></span><span class="price">$13.75</span></div><span class="desc">Broccoli, carrot, snow peas, baby corn, napa, water chestnuts and mushroom in brown sauce</span></li>
+              <li id="item-pork-beef-beef-with-vegetables-in-garlic-sauce"><div class="top"><span class="name">Beef with vegetables in garlic sauce</span><span class="dots" aria-hidden="true"></span><span class="price">$13.75</span></div></li>
+              <li id="item-pork-beef-szechuan-beef"><div class="top"><span class="name">Szechuan beef</span><span class="dots" aria-hidden="true"></span><span class="price">$13.75</span></div></li>
+              <li id="item-pork-beef-mongolian-beef"><div class="top"><span class="name">Mongolian beef</span><span class="dots" aria-hidden="true"></span><span class="price">$13.75</span></div><span class="desc">Sliced beef sauteed with onions and scallions</span></li>
+              <li id="item-pork-beef-hot-and-spicy-beef"><div class="top"><span class="name">Hot and spicy beef</span><span class="dots" aria-hidden="true"></span><span class="price">$13.75</span></div></li>
+            </ul>
+          </div>
+          <div class="group" id="poultry">
+            <h3>Chicken</h3>
+            <p class="gnote">Large size, with white rice.</p>
+            <ul>
+              <li id="item-poultry-chicken-with-broccoli"><div class="top"><span class="name">Chicken with broccoli</span><span class="dots" aria-hidden="true"></span><span class="price">$12.95</span></div><span class="desc">Sliced white-meat chicken with broccoli in brown sauce</span></li>
+              <li id="item-poultry-chicken-with-cashew-nuts"><div class="top"><span class="name">Chicken with cashew nuts</span><span class="dots" aria-hidden="true"></span><span class="price">$12.95</span></div><span class="desc">Diced chicken with carrot, broccoli stem, baby corn and mushroom in brown sauce, topped with cashews</span></li>
+              <li id="item-poultry-moo-goo-gai-pan"><div class="top"><span class="name">Moo goo gai pan</span><span class="dots" aria-hidden="true"></span><span class="price">$12.95</span></div><span class="desc">Sliced white-meat chicken with mushroom, napa, snow peas, carrots and baby corn in white sauce</span></li>
+              <li id="item-poultry-chicken-with-black-bean-sauce"><div class="top"><span class="name">Chicken with black bean sauce</span><span class="dots" aria-hidden="true"></span><span class="price">$12.95</span></div><span class="desc">With onions, green pepper, mushroom, baby corn and carrots</span></li>
+              <li id="item-poultry-chicken-with-mixed-vegetables"><div class="top"><span class="name">Chicken with mixed vegetables</span><span class="dots" aria-hidden="true"></span><span class="price">$12.95</span></div></li>
+              <li id="item-poultry-curry-chicken-with-onion"><div class="top"><span class="name">Curry chicken with onion</span><span class="dots" aria-hidden="true"></span><span class="price">$12.95</span></div><span class="desc">With onion, green pepper, mushroom, baby corn and carrot in curry sauce</span></li>
+              <li id="item-poultry-kung-pao-chicken"><div class="top"><span class="name">Kung pao chicken</span><span class="dots" aria-hidden="true"></span><span class="price">$12.95</span></div><span class="desc">Diced chicken with carrot, water chestnuts, broccoli stem and green pepper in spicy brown sauce, topped with peanuts</span></li>
+              <li id="item-poultry-sweet-and-sour-chicken"><div class="top"><span class="name">Sweet and sour chicken</span><span class="dots" aria-hidden="true"></span><span class="price">$12.95</span></div></li>
+              <li id="item-poultry-sha-cha-chicken"><div class="top"><span class="name">Sha cha chicken</span><span class="dots" aria-hidden="true"></span><span class="price">$12.95</span></div><span class="desc">With vegetables in Chinese barbecue sha cha sauce</span></li>
+              <li id="item-poultry-fried-almond-chicken"><div class="top"><span class="name">Fried almond chicken</span><span class="dots" aria-hidden="true"></span><span class="price">$12.95</span></div><span class="desc">Battered white-meat chicken topped with almonds, brown gravy on the side</span></li>
+              <li id="item-poultry-spicy-honey-chicken-with-vegetables"><div class="top"><span class="name">Spicy honey chicken with vegetables</span><span class="dots" aria-hidden="true"></span><span class="price">$12.95</span></div><span class="desc">Sliced white-meat chicken with mixed vegetables in sweet and spicy sauce</span></li>
+              <li id="item-poultry-hunan-chicken"><div class="top"><span class="name">Hunan chicken</span><span class="dots" aria-hidden="true"></span><span class="price">$12.95</span></div><span class="desc">Spicy white-meat chicken with mixed vegetables</span></li>
+              <li id="item-poultry-chicken-with-garlic-sauce"><div class="top"><span class="name">Chicken with garlic sauce</span><span class="dots" aria-hidden="true"></span><span class="price">$12.95</span></div><span class="desc">With broccoli, mushroom, baby corn, snow peas, water chestnuts, carrot and green pepper</span></li>
+              <li id="item-poultry-mongolian-chicken"><div class="top"><span class="name">Mongolian chicken</span><span class="dots" aria-hidden="true"></span><span class="price">$12.95</span></div></li>
+              <li id="item-poultry-hot-and-spicy-chicken"><div class="top"><span class="name">Hot and spicy chicken</span><span class="dots" aria-hidden="true"></span><span class="price">$12.95</span></div><span class="desc">With shredded carrot, bamboo shoots, snow peas, mushroom and green pepper in spicy brown sauce</span></li>
+              <li id="item-poultry-moo-shu-chicken-5-pancakes"><div class="top"><span class="name">Moo shu chicken (5 pancakes)</span><span class="dots" aria-hidden="true"></span><span class="price">$12.95</span></div></li>
+              <li id="item-poultry-szechuan-chicken"><div class="top"><span class="name">Szechuan chicken</span><span class="dots" aria-hidden="true"></span><span class="price">$12.95</span></div></li>
+              <li id="item-poultry-orange-chicken"><div class="top"><span class="name">Orange chicken</span><span class="dots" aria-hidden="true"></span><span class="price">$13.75</span></div><span class="desc">Battered chicken with orange peel in sweet and spicy sauce</span></li>
+              <li id="item-poultry-general-tso-s-chicken"><div class="top"><span class="name">General Tso&#x27;s chicken</span><span class="dots" aria-hidden="true"></span><span class="price">$13.75</span></div></li>
+              <li id="item-poultry-sesame-chicken"><div class="top"><span class="name">Sesame chicken</span><span class="dots" aria-hidden="true"></span><span class="price">$13.75</span></div></li>
+              <li id="item-poultry-teriyaki-chicken"><div class="top"><span class="name">Teriyaki chicken</span><span class="dots" aria-hidden="true"></span><span class="price">$13.75</span></div></li>
+              <li id="item-poultry-black-pepper-chicken"><div class="top"><span class="name">Black pepper chicken</span><span class="dots" aria-hidden="true"></span><span class="price">$13.75</span></div></li>
+            </ul>
+          </div>
+          <div class="group" id="seafood">
+            <h3>Seafood</h3>
+            <p class="gnote">Large size, with white rice.</p>
+            <ul>
+              <li id="item-seafood-shrimp-with-broccoli"><div class="top"><span class="name">Shrimp with broccoli</span><span class="dots" aria-hidden="true"></span><span class="price">$14.25</span></div></li>
+              <li id="item-seafood-shrimp-with-lobster-sauce"><div class="top"><span class="name">Shrimp with lobster sauce</span><span class="dots" aria-hidden="true"></span><span class="price">$14.25</span></div></li>
+              <li id="item-seafood-shrimp-with-snow-peas"><div class="top"><span class="name">Shrimp with snow peas</span><span class="dots" aria-hidden="true"></span><span class="price">$14.25</span></div></li>
+              <li id="item-seafood-shrimp-with-mixed-vegetables"><div class="top"><span class="name">Shrimp with mixed vegetables</span><span class="dots" aria-hidden="true"></span><span class="price">$14.25</span></div></li>
+              <li id="item-seafood-curry-shrimp-with-onions"><div class="top"><span class="name">Curry shrimp with onions</span><span class="dots" aria-hidden="true"></span><span class="price">$14.25</span></div></li>
+              <li id="item-seafood-sweet-and-sour-shrimp"><div class="top"><span class="name">Sweet and sour shrimp</span><span class="dots" aria-hidden="true"></span><span class="price">$14.25</span></div></li>
+              <li id="item-seafood-szechuan-shrimp"><div class="top"><span class="name">Szechuan shrimp</span><span class="dots" aria-hidden="true"></span><span class="price">$14.25</span></div></li>
+              <li id="item-seafood-shrimp-with-garlic-sauce"><div class="top"><span class="name">Shrimp with garlic sauce</span><span class="dots" aria-hidden="true"></span><span class="price">$14.25</span></div></li>
+              <li id="item-seafood-sesame-shrimp"><div class="top"><span class="name">Sesame shrimp</span><span class="dots" aria-hidden="true"></span><span class="price">$14.25</span></div></li>
+              <li id="item-seafood-hunan-shrimp"><div class="top"><span class="name">Hunan shrimp</span><span class="dots" aria-hidden="true"></span><span class="price">$14.25</span></div></li>
+              <li id="item-seafood-hunan-scallops"><div class="top"><span class="name">Hunan scallops</span><span class="dots" aria-hidden="true"></span><span class="price">$14.25</span></div></li>
+              <li id="item-seafood-spicy-garlic-scallops-with-vegetables"><div class="top"><span class="name">Spicy garlic scallops with vegetables</span><span class="dots" aria-hidden="true"></span><span class="price">$14.25</span></div></li>
+            </ul>
+          </div>
+          <div class="group" id="chefs-special">
+            <h3>Chef&#x27;s specials</h3>
+            <p class="gnote">With white rice or vegetable fried rice.</p>
+            <ul>
+              <li id="item-chefs-special-chicken-and-shrimp"><div class="top"><span class="name">Chicken and shrimp</span><span class="dots" aria-hidden="true"></span><span class="price">$14.50</span></div><span class="desc">Sliced chicken and jumbo shrimp with Chinese vegetables in the chef&#x27;s brown sauce</span></li>
+              <li id="item-chefs-special-shrimp-and-chicken-with-cashew-nuts"><div class="top"><span class="name">Shrimp and chicken with cashew nuts</span><span class="dots" aria-hidden="true"></span><span class="price">$14.50</span></div></li>
+              <li id="item-chefs-special-mongolian-triple-delight"><div class="top"><span class="name">Mongolian triple delight</span><span class="dots" aria-hidden="true"></span><span class="price">$14.95</span></div></li>
+              <li id="item-chefs-special-hunan-triple"><div class="top"><span class="name">Hunan triple</span><span class="dots" aria-hidden="true"></span><span class="price">$14.95</span></div><span class="desc">Chicken, beef and jumbo shrimp with mixed vegetables in hot and spicy sauce</span></li>
+              <li id="item-chefs-special-four-seasons"><div class="top"><span class="name">Four seasons</span><span class="dots" aria-hidden="true"></span><span class="price">$14.95</span></div><span class="desc">Jumbo shrimp, sliced pork, beef and chicken with vegetables in brown sauce</span></li>
+              <li id="item-chefs-special-triple-garlic-delight"><div class="top"><span class="name">Triple garlic delight</span><span class="dots" aria-hidden="true"></span><span class="price">$14.95</span></div><span class="desc">Shrimp, chicken and beef with mixed vegetables in garlic sauce</span></li>
+              <li id="item-chefs-special-dragon-and-phoenix"><div class="top"><span class="name">Dragon and phoenix</span><span class="dots" aria-hidden="true"></span><span class="price">$15.25</span></div><span class="desc">Shrimp and vegetables in savory white sauce on one side, crispy chicken in hot, spicy and sweet sauce on the other</span></li>
+              <li id="item-chefs-special-shrimp-and-scallops"><div class="top"><span class="name">Shrimp and scallops</span><span class="dots" aria-hidden="true"></span><span class="price">$15.25</span></div><span class="desc">Fresh scallops and shrimp with vegetables in white sauce</span></li>
+              <li id="item-chefs-special-happy-family"><div class="top"><span class="name">Happy family</span><span class="dots" aria-hidden="true"></span><span class="price">$15.55</span></div><span class="desc">Shrimp, scallops, chicken, beef and pork with vegetables in the chef&#x27;s special sauce</span></li>
+              <li id="item-chefs-special-seafood-delight"><div class="top"><span class="name">Seafood delight</span><span class="dots" aria-hidden="true"></span><span class="price">$15.75</span></div><span class="desc">Jumbo shrimp, crawfish, scallops and crabmeat with fresh vegetables in white sauce</span></li>
+            </ul>
+          </div>
+          <div class="group" id="diet">
+            <h3>Steamed (diet menu)</h3>
+            <p class="gnote">No added fat, salt or sugar. Large size, with steamed rice.</p>
+            <ul>
+              <li id="item-diet-steamed-broccoli"><div class="top"><span class="name">Steamed broccoli</span><span class="dots" aria-hidden="true"></span><span class="price">$11.75</span></div></li>
+              <li id="item-diet-steamed-mixed-vegetables"><div class="top"><span class="name">Steamed mixed vegetables</span><span class="dots" aria-hidden="true"></span><span class="price">$11.75</span></div></li>
+              <li id="item-diet-steamed-chicken-with-mixed-vegetables"><div class="top"><span class="name">Steamed chicken with mixed vegetables</span><span class="dots" aria-hidden="true"></span><span class="price">$12.95</span></div></li>
+              <li id="item-diet-steamed-shrimp-with-mixed-vegetables"><div class="top"><span class="name">Steamed shrimp with mixed vegetables</span><span class="dots" aria-hidden="true"></span><span class="price">$14.25</span></div></li>
+              <li id="item-diet-steamed-gourmet-garden"><div class="top"><span class="name">Steamed gourmet garden</span><span class="dots" aria-hidden="true"></span><span class="price">$14.55</span></div><span class="desc">Jumbo shrimp, chicken and beef with mixed vegetables</span></li>
+            </ul>
+          </div>
+          <div class="group" id="sides">
+            <h3>Sides</h3>
+            <ul>
+              <li id="item-sides-steamed-white-rice"><div class="top"><span class="name">Steamed white rice</span><span class="dots" aria-hidden="true"></span><span class="price">$1.95<abbr class="plus" title="More sizes available; smallest size shown">+</abbr></span></div></li>
+              <li id="item-sides-fried-noodle-chips"><div class="top"><span class="name">Fried noodle chips</span><span class="dots" aria-hidden="true"></span><span class="price">$0.75</span></div></li>
+              <li id="item-sides-sweet-and-sour-sauce"><div class="top"><span class="name">Sweet and sour sauce</span><span class="dots" aria-hidden="true"></span><span class="price">$0.75</span></div></li>
+              <li id="item-sides-brown-gravy-8-oz"><div class="top"><span class="name">Brown gravy (8 oz)</span><span class="dots" aria-hidden="true"></span><span class="price">$0.75</span></div></li>
+              <li id="item-sides-fortune-cookies-6"><div class="top"><span class="name">Fortune cookies (6)</span><span class="dots" aria-hidden="true"></span><span class="price">$0.99</span></div></li>
+              <li id="item-sides-fortune-cookies-12"><div class="top"><span class="name">Fortune cookies (12)</span><span class="dots" aria-hidden="true"></span><span class="price">$1.95</span></div></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <p class="note">Prices and dishes can change. Please tell us about any food allergies before you order. See our <a class="link" href="legal.html#allergens">allergen notice</a>.</p>
+    </div>
+  </section>
+
+  <section class="sec" id="trays">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Party trays</h2>
+        <p>Feeding the office, a team or the whole family? Trays serve 8 to 10 people. Please give us 24 hours' notice.</p>
+      </div>
+      <div class="trays">
+        <div class="tray"><h3>Egg rolls or spring rolls</h3><p class="tnote">Pork egg rolls or vegetable spring rolls</p><table><tr><td>10 rolls</td><td>$14</td></tr><tr><td>20 rolls</td><td>$26</td></tr><tr><td>30 rolls</td><td>$36</td></tr><tr><td>40 rolls</td><td>$46</td></tr><tr><td>50 rolls</td><td>$56</td></tr></table></div>
+        <div class="tray"><h3>Fried chicken wings</h3><p class="tnote">Other flavors $2 more: lemon pepper, spicy garlic, General Tso&#x27;s or hot</p><table><tr><td>40 pieces</td><td>$38</td></tr><tr><td>50 pieces</td><td>$46</td></tr><tr><td>60 pieces</td><td>$54</td></tr><tr><td>70 pieces</td><td>$62</td></tr><tr><td>80 pieces</td><td>$68</td></tr><tr><td>100 pieces</td><td>$83</td></tr></table></div>
+        <div class="tray"><h3>Crab rangoon</h3><table><tr><td>40 pieces</td><td>$26</td></tr><tr><td>50 pieces</td><td>$32</td></tr><tr><td>60 pieces</td><td>$37</td></tr><tr><td>70 pieces</td><td>$42</td></tr><tr><td>80 pieces</td><td>$47</td></tr></table></div>
+        <div class="tray"><h3>Fried rice</h3><p class="tnote">Serves 8 to 10</p><table><tr><td>Vegetable</td><td>$35</td></tr><tr><td>Roast pork or chicken</td><td>$36</td></tr><tr><td>Beef or shrimp</td><td>$39</td></tr><tr><td>House special</td><td>$40</td></tr></table></div>
+        <div class="tray"><h3>Lo mein</h3><p class="tnote">Serves 8 to 10</p><table><tr><td>Vegetable</td><td>$38</td></tr><tr><td>Roast pork or chicken</td><td>$39</td></tr><tr><td>Beef or shrimp</td><td>$40</td></tr><tr><td>House special</td><td>$42</td></tr></table></div>
+        <div class="tray"><h3>Entrees</h3><p class="tnote">Serves 8 to 10. White rice not included</p><table><tr><td>Chicken with broccoli</td><td>$44</td></tr><tr><td>Chicken with mixed vegetables</td><td>$44</td></tr><tr><td>Sesame chicken</td><td>$46</td></tr><tr><td>General Tso&#x27;s chicken</td><td>$46</td></tr><tr><td>Beef with broccoli</td><td>$46</td></tr><tr><td>Mongolian beef</td><td>$46</td></tr><tr><td>Pepper steak with onion</td><td>$46</td></tr><tr><td>Spicy garlic shrimp with vegetables</td><td>$48</td></tr><tr><td>Shrimp with broccoli</td><td>$48</td></tr></table></div>
+      </div>
+      <div class="tray-cta">
+        <p><b>Ready to order a tray?</b> Call us with your date, time and headcount, and we'll have it hot and ready.</p>
+        <a class="btn primary" href="tel:+17705914288">Call (770) 591-4288</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="reviews">
+    <div class="wrap">
+      <div class="sec-head"><h2>What customers say</h2></div>
+      <div class="quotes">
+        <figure>
+          <blockquote>“Thank you for making our Christmas luncheon amazing! The party trays we ordered were so hot &amp; fresh!”</blockquote>
+          <cite>Suzanne B., Facebook review</cite>
+        </figure>
+        <div class="scores">
+          <div class="score"><b>4.8</b><span>from 425 ratings on Grubhub</span></div>
+          <div class="score"><b>100%</b><span>of Facebook reviewers recommend us</span></div>
+          <div class="score"><b>2014</b><span>serving Marietta from the same spot on Canton Road</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="visit">
+    <div class="wrap">
+      <div class="sec-head"><h2>Hours and location</h2></div>
+      <div class="visit">
+        <div>
+          <table class="hours" id="hours" aria-label="Opening hours">
+            <tr data-d="1" class="closed"><td>Monday</td><td>Closed</td></tr>
+            <tr data-d="2"><td>Tuesday</td><td>11 am to 9:30 pm</td></tr>
+            <tr data-d="3"><td>Wednesday</td><td>11 am to 9:30 pm</td></tr>
+            <tr data-d="4"><td>Thursday</td><td>11 am to 9:30 pm</td></tr>
+            <tr data-d="5"><td>Friday</td><td>11 am to 10 pm</td></tr>
+            <tr data-d="6"><td>Saturday</td><td>11 am to 10 pm</td></tr>
+            <tr data-d="0"><td>Sunday</td><td>11 am to 9:30 pm</td></tr>
+          </table>
+          <p class="small">Holiday hours may be different. Please call ahead.</p>
+        </div>
+        <div class="place">
+          <p class="addr">3595 Canton Rd, Suite 328<br>Marietta, GA 30066</p>
+          <p class="small">In the New Chastain Corner shopping center on Canton Road.</p>
+          <div class="actions">
+            <a class="btn primary" href="https://www.google.com/maps/dir/?api=1&destination=3595+Canton+Rd+Ste+328+Marietta+GA+30066" target="_blank" rel="noopener">Get directions</a>
+            <a class="btn ghost" href="tel:+17705914288">(770) 591-4288</a>
+          </div>
+          <div class="map"><iframe loading="lazy" title="Map of Mr. Wonton on Canton Road" src="https://www.google.com/maps?q=3595+Canton+Rd+Ste+328,+Marietta,+GA+30066&output=embed"></iframe></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© <span id="yr">2026</span> Mr. Wonton LLC, 3595 Canton Rd, Suite 328, Marietta, GA 30066</span>
+    <nav aria-label="Legal">
+      <a href="legal.html#privacy">Privacy</a>
+      <a href="legal.html#terms">Terms</a>
+      <a href="legal.html#accessibility">Accessibility</a>
+      <a href="legal.html#allergens">Allergens</a>
+    </nav>
+  </div>
+</footer>
+
+<div class="bar" aria-label="Quick actions">
+  <a class="btn primary" href="tel:+17705914288">Call</a>
+  <a class="btn ghost" href="https://www.mrwontononline.com/" target="_blank" rel="noopener">Order</a>
+  <a class="btn ghost" href="https://www.google.com/maps/dir/?api=1&destination=3595+Canton+Rd+Ste+328+Marietta+GA+30066" target="_blank" rel="noopener">Directions</a>
+</div>
+
+<script>
+  // Hours in Marietta (Eastern) time. Minutes after midnight; Sunday = 0; null = closed all day.
+  var HOURS = {0:[660,1290],1:null,2:[660,1290],3:[660,1290],4:[660,1290],5:[660,1320],6:[660,1320]};
+  // Holiday exceptions: "YYYY-MM-DD": null (closed) or [open, close]. Add them here when the owner confirms.
+  var SPECIAL = {};
+  var DAYS = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+  function fmt(m){ var h=Math.floor(m/60), mi=m%60, h12=((h+11)%12)+1; return h12+(mi?":"+String(mi).padStart(2,"0"):"")+" "+(h<12?"am":"pm"); }
+  function key(d){ return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0"); }
+  function hoursOn(d){ var k=key(d); return (k in SPECIAL) ? SPECIAL[k] : HOURS[d.getDay()]; }
+  try {
+    var now = window.__NOW ? new Date(window.__NOW) : new Date(new Date().toLocaleString("en-US",{timeZone:"America/New_York"}));
+    var mins = now.getHours()*60+now.getMinutes(), today = hoursOn(now), msg;
+    if (today && mins >= today[0] && mins < today[1]) { msg = "Open now, until " + fmt(today[1]); document.getElementById("dot").classList.add("open"); }
+    else if (today && mins < today[0]) { msg = "Closed now. Opens today at " + fmt(today[0]); }
+    else {
+      msg = today ? "Closed now" : "Closed today";
+      for (var i=1;i<=7;i++){ var d=new Date(now); d.setDate(now.getDate()+i); var h=hoursOn(d);
+        if (h){ msg += ". Opens " + (i===1 ? "tomorrow" : DAYS[d.getDay()]) + " at " + fmt(h[0]); break; } }
+    }
+    document.getElementById("status").textContent = msg;
+    document.getElementById("today").textContent = today ? (DAYS[now.getDay()] + ", " + fmt(today[0]) + " to " + fmt(today[1])) : (DAYS[now.getDay()] + ", closed");
+    var row = document.querySelector('#hours tr[data-d="'+now.getDay()+'"]'); if (row) row.classList.add("today");
+    document.getElementById("yr").textContent = now.getFullYear();
+  } catch(e) {}
+
+  // Highlight the menu category you're looking at, and keep its chip in view (single-column layout only)
+  if (window.matchMedia("(max-width: 899px)").matches) try {
+    var chips = document.querySelectorAll(".chips a"), map = {};
+    chips.forEach(function(c){ map[c.getAttribute("href").slice(1)] = c; });
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if (!en.isIntersecting) return;
+        chips.forEach(function(c){ c.classList.remove("on"); c.removeAttribute("aria-current"); });
+        var c = map[en.target.id]; if (!c) return;
+        c.classList.add("on"); c.setAttribute("aria-current","true");
+        var bar = c.parentNode; bar.scrollTo({left: c.offsetLeft - 20, behavior: "smooth"});
+      });
+    }, {rootMargin: "-130px 0px -60% 0px"});
+    document.querySelectorAll(".group").forEach(function(g){ io.observe(g); });
+  } catch(e) {}
+</script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/SplitText.min.js"></script>
+<script src="https://unpkg.com/lenis@1.3.27/dist/lenis.min.js"></script>
+<script>
+  // Motion: smooth scrolling (Lenis) + entrance and scroll reveals (GSAP).
+  // If these libraries fail to load, the page simply shows everything with no animation.
+  (function(){
+    if (!window.gsap || !window.ScrollTrigger) return;
+    gsap.registerPlugin(ScrollTrigger, window.SplitText);
+    var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    if (window.Lenis && !reduce) {
+      var lenis = new Lenis({ lerp: 0.12 });
+      lenis.on("scroll", ScrollTrigger.update);
+      gsap.ticker.add(function(t){ lenis.raf(t * 1000); });
+      gsap.ticker.lagSmoothing(0);
+      document.addEventListener("click", function(e){
+        var a = e.target.closest && e.target.closest('a[href^="#"]'); if (!a) return;
+        var el = document.querySelector(a.getAttribute("href")); if (!el) return;
+        e.preventDefault();
+        var y = el.getBoundingClientRect().top + window.scrollY - (parseFloat(getComputedStyle(el).scrollMarginTop) || 0);
+        var t = gsap.getProperty(el, "y"); if (t) y -= t;
+        lenis.scrollTo(Math.max(0, y), { duration: 1.1, easing: function(x){ return 1 - Math.pow(1 - x, 4); } });
+        if (history.replaceState) history.replaceState(null, "", a.getAttribute("href"));
+      });
+    }
+
+    // Briefly highlight a dish after jumping to it from "Most ordered"
+    document.querySelectorAll(".pop").forEach(function(a){
+      a.addEventListener("click", function(){
+        var li = document.querySelector(a.getAttribute("href")); if (!li) return;
+        li.classList.add("hl"); setTimeout(function(){ li.classList.remove("hl"); }, 2200);
+      });
+    });
+
+    var mm = gsap.matchMedia();
+    mm.add("(prefers-reduced-motion: no-preference)", function(){
+      var tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+      tl.from(".hero .status", { y: 12, opacity: 0, duration: 0.5 })
+        .from(".ticket", { y: 40, rotate: 3, opacity: 0, duration: 1, ease: "power4.out" }, 0.2)
+        .from(".ticket li", { x: 16, opacity: 0, duration: 0.5, stagger: 0.1 }, 0.7)
+        .from(".ticket .stamp", { scale: 1.8, opacity: 0, rotate: -20, duration: 0.5, ease: "back.out(2)" }, 1.0)
+        .from(".hero .lead, .hero .actions, .hero .rating", { y: 18, opacity: 0, duration: 0.7, stagger: 0.08 }, 0.45)
+        .from(".glance", { y: 24, opacity: 0, duration: 0.7 }, 0.7);
+
+      if (window.SplitText) {
+        SplitText.create(".hero h1", { type: "lines", mask: "lines", autoSplit: true,
+          onSplit: function(self){ return gsap.from(self.lines, { yPercent: 110, duration: 0.9, ease: "power4.out", stagger: 0.09, delay: 0.1 }); } });
+      }
+
+      document.querySelectorAll(".btn").forEach(function(btn){
+        var wrap = document.createElement("span"); wrap.className = "rip"; wrap.setAttribute("aria-hidden","true");
+        var label = document.createElement("span"); label.className = "t";
+        while (btn.firstChild) label.appendChild(btn.firstChild);
+        btn.appendChild(wrap); btn.appendChild(label);
+        btn.addEventListener("pointerdown", function(ev){
+          var r = btn.getBoundingClientRect(), dot = document.createElement("i");
+          dot.style.left = (ev.clientX - r.left) + "px"; dot.style.top = (ev.clientY - r.top) + "px";
+          wrap.appendChild(dot);
+          gsap.fromTo(dot, { scale: 0, opacity: 0.35 }, { scale: 1, opacity: 0, duration: 0.5, ease: "power2.out", onComplete: function(){ dot.remove(); } });
+          if (!btn.classList.contains("magnetic")) gsap.fromTo(btn, { scale: 0.95 }, { scale: 1, duration: 0.35, ease: "back.out(3)" });
+        });
+      });
+
+      if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+        document.querySelectorAll(".btn.magnetic").forEach(function(btn){
+          btn.addEventListener("mousemove", function(ev){
+            var r = btn.getBoundingClientRect();
+            gsap.to(btn, { x: (ev.clientX - r.left - r.width/2) * 0.12, y: (ev.clientY - r.top - r.height/2) * 0.2, scale: 1.03, duration: 0.4, ease: "power3.out" });
+          });
+          btn.addEventListener("mouseleave", function(){ gsap.to(btn, { x: 0, y: 0, scale: 1, duration: 0.7, ease: "elastic.out(1, 0.45)" }); });
+        });
+      }
+
+      gsap.utils.toArray(".sec-head").forEach(function(h){
+        gsap.from(h, { y: 28, opacity: 0, duration: 0.8, scrollTrigger: { trigger: h, start: "top 90%", once: true } });
+      });
+      gsap.from(".pop", { y: 40, opacity: 0, duration: 0.7, stagger: 0.08, scrollTrigger: { trigger: ".pops", start: "top 85%", once: true } });
+      gsap.utils.toArray(".group").forEach(function(g){
+        gsap.from(g.querySelectorAll("h3, .gnote, li"), { y: 16, opacity: 0, duration: 0.5, stagger: 0.03,
+          scrollTrigger: { trigger: g, start: "top 92%", once: true } });
+      });
+      gsap.from(".tray", { y: 30, opacity: 0, duration: 0.6, stagger: 0.07, scrollTrigger: { trigger: ".trays", start: "top 85%", once: true } });
+      gsap.from(".quotes figure, .score", { y: 24, opacity: 0, duration: 0.7, stagger: 0.1, scrollTrigger: { trigger: ".quotes", start: "top 85%", once: true } });
+      gsap.from(".visit > *", { y: 24, opacity: 0, duration: 0.7, stagger: 0.12, scrollTrigger: { trigger: ".visit", start: "top 88%", once: true } });
+    });
+
+    document.fonts && document.fonts.ready.then(function(){ ScrollTrigger.refresh(); });
+    window.addEventListener("load", function(){ ScrollTrigger.refresh(); });
+  })();
+</script>
+</body>
+</html>

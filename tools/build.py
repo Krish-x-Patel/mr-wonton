@@ -220,10 +220,10 @@ TRAYS = [
 
 # Grubhub "Best sellers: most ordered", in its order (checked Nov 22, 2026). (menu group, name, badge, blurb)
 POPULAR = [
- ("appetizers", "Crab rangoon (5)", "#1 most ordered", "Crispy wontons with a cream cheese filling"),
- ("specials", "Sesame chicken", "#2 most ordered", "Day special with vegetable fried rice and an egg roll"),
- ("appetizers", "Vegetable spring roll (each)", "#3 most ordered", "Crispy, golden and only $1.59"),
- ("specials", "Sweet and sour chicken", "#4 most ordered", "Day special with vegetable fried rice and an egg roll"),
+ ("appetizers", "Crab rangoon (5)", "#1 most ordered", "Crispy wontons with a cream cheese filling", "crab-rangoon"),
+ ("specials", "Sesame chicken", "#2 most ordered", "Day special with vegetable fried rice and an egg roll", "sesame-chicken"),
+ ("appetizers", "Vegetable spring roll (each)", "#3 most ordered", "Crispy, golden and only $1.59", "spring-roll"),
+ ("specials", "Sweet and sour chicken", "#4 most ordered", "Day special with vegetable fried rice and an egg roll", "sweet-sour-chicken"),
 ]
 
 e = html.escape
@@ -236,9 +236,10 @@ def money(p):
 
 def popular_html():
     out = []
-    for gid, name, badge, blurb in POPULAR:
+    for gid, name, badge, blurb, photo in POPULAR:
         _, price, _ = ITEMS[(gid, name)]
         out.append(f'''        <a class="pop" href="#item-{gid}-{slug(name)}">
+          <img class="pop-img" src="photos/{photo}.jpg" width="800" height="600" loading="lazy" alt="{e(name.replace(" (each)", "").replace(" (5)", ""))}">
           <span class="pop-rank">{e(badge)}</span>
           <span class="pop-name">{e(name.replace(" (each)", ""))}</span>
           <span class="pop-blurb">{e(blurb)}</span>

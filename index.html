@@ -126,6 +126,8 @@
   .pop{display:flex;flex-direction:column;gap:6px;text-decoration:none;background:var(--panel);border:1px solid var(--rule);border-radius:10px;padding:20px 20px 18px;min-height:190px;transition:border-color .2s, transform .2s}
   .pop:hover{border-color:var(--gold);transform:translateY(-3px)}
   @media (prefers-reduced-motion: reduce){ .pop{transition:none} .pop:hover{transform:none} }
+  .pop{padding-top:0;overflow:hidden}
+  .pop-img{display:block;max-width:none;width:calc(100% + 40px);margin:0 -20px 8px;aspect-ratio:4/3;height:auto;object-fit:cover;background:var(--board);border-bottom:1px solid var(--rule)}
   .pop-rank{font-size:12.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
   .pop-name{font-family:var(--display);text-transform:uppercase;font-size:30px;line-height:1;margin-top:4px}
   .pop-blurb{color:var(--muted);font-size:15px;line-height:1.4}
@@ -298,31 +300,35 @@
       </div>
       <div class="pops">
         <a class="pop" href="#item-appetizers-crab-rangoon-5">
+          <img class="pop-img" src="photos/crab-rangoon.jpg" width="800" height="600" loading="lazy" alt="Crab rangoon">
           <span class="pop-rank">#1 most ordered</span>
           <span class="pop-name">Crab rangoon (5)</span>
           <span class="pop-blurb">Crispy wontons with a cream cheese filling</span>
           <span class="pop-price">$4.25</span>
         </a>
         <a class="pop" href="#item-specials-sesame-chicken">
+          <img class="pop-img" src="photos/sesame-chicken.jpg" width="800" height="600" loading="lazy" alt="Sesame chicken">
           <span class="pop-rank">#2 most ordered</span>
           <span class="pop-name">Sesame chicken</span>
           <span class="pop-blurb">Day special with vegetable fried rice and an egg roll</span>
           <span class="pop-price">$11.95</span>
         </a>
         <a class="pop" href="#item-appetizers-vegetable-spring-roll-each">
+          <img class="pop-img" src="photos/spring-roll.jpg" width="800" height="600" loading="lazy" alt="Vegetable spring roll">
           <span class="pop-rank">#3 most ordered</span>
           <span class="pop-name">Vegetable spring roll</span>
           <span class="pop-blurb">Crispy, golden and only $1.59</span>
           <span class="pop-price">$1.59</span>
         </a>
         <a class="pop" href="#item-specials-sweet-and-sour-chicken">
+          <img class="pop-img" src="photos/sweet-sour-chicken.jpg" width="800" height="600" loading="lazy" alt="Sweet and sour chicken">
           <span class="pop-rank">#4 most ordered</span>
           <span class="pop-name">Sweet and sour chicken</span>
           <span class="pop-blurb">Day special with vegetable fried rice and an egg roll</span>
           <span class="pop-price">$11.55</span>
         </a>
       </div>
-      <p class="src">Ranked by Grubhub's "most ordered" list for Mr. Wonton.</p>
+      <p class="src">Ranked by Grubhub's "most ordered" list for Mr. Wonton. Dish photos are Mr. Wonton's menu photos from DoorDash, shown on Google Maps.</p>
     </div>
   </section>
 

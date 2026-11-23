@@ -206,6 +206,9 @@
   .addr{font-family:var(--display);text-transform:uppercase;font-size:clamp(32px,4vw,42px);line-height:1}
   .place .actions{margin-top:20px}
   .map{border-radius:10px;overflow:hidden;border:1px solid var(--rule);aspect-ratio:4/3;max-width:100%;margin-top:24px;background:var(--board)}
+  .front{margin:28px 0 0;border-radius:10px;overflow:hidden;border:1px solid var(--rule);background:var(--board)}
+  .front img{display:block;width:100%;height:auto;aspect-ratio:900/873;object-fit:cover}
+  .front figcaption{padding:10px 14px;font-size:14px;color:var(--muted)}
   .map iframe{width:100%;height:100%;border:0;filter:saturate(.8)}
 
   /* Footer */
@@ -651,6 +654,10 @@
             <tr data-d="0"><td>Sunday</td><td>11 am to 9:30 pm</td></tr>
           </table>
           <p class="small">Holiday hours may be different. Please call ahead.</p>
+          <figure class="front">
+            <img src="photos/storefront.jpg" width="900" height="873" loading="lazy" alt="Mr. Wonton storefront: a white 'Mr. Wonton Chinese Food' sign over glass doors with a red OPEN sign, Suite 328">
+            <figcaption>Look for the white sign at Suite 328. Photo: Mr. Wonton.</figcaption>
+          </figure>
         </div>
         <div class="place">
           <p class="addr">3595 Canton Rd<br>Suite 328</p>
